@@ -1,0 +1,13 @@
+@import "./reset.css";
+@import "./variables/global.css";
+@import "./themes/normal.css";
+@import "./themes/dark.css";
+
+.app {
+  font: var(--font-m);
+
+  background-color: var(--bg-color);
+
+  color: var(--primery-color);
+  height: 100vh;
+}

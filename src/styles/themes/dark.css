@@ -1,0 +1,6 @@
+.app.dark {
+  --bg-color: rgb(48, 7, 84);
+
+  --primery-color: rgb(103, 88, 202);
+  --secondory-color: rgb(145, 129, 244);
+}
