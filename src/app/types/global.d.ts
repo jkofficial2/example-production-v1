@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 declare module "*.css" {
   interface IClassNames {
     [className: string]: string;
@@ -14,3 +15,5 @@ declare module "*.svg" {
   const svg: React.FunctionComponent<React.SVGAttributes<SVGAElement>>;
   export default svg;
 }
+
+declare const __IS_DEV__: boolean;

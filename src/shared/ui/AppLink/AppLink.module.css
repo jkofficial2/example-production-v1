@@ -1,11 +1,11 @@
 .AppLink {
-  color: var(--primery-color);
+    color: var(--primery-color);
 }
 
 .primery {
-  color: var(--primery-color);
+    color: var(--primery-color);
 }
 
 .secondary {
-  color: var(--secondary-color);
+    color: var(--secondary-color);
 }

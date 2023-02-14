@@ -1,9 +1,8 @@
 .app.light {
-  --bg-color: rgb(216, 181, 246);
-  --inteverted-bg-color: rgb(48, 7, 84);
-
-  --primery-color: rgb(88, 34, 34);
-  --secondary-color: rgb(239, 92, 92);
-  --inteverted-primery-color: rgb(88, 50, 34);
-  --inteverted-secondary-color: rgb(244, 240, 129);
+    --bg-color: rgb(216 181 246);
+    --inteverted-bg-color: rgb(48 7 84);
+    --primery-color: rgb(88 34 34);
+    --secondary-color: rgb(239 92 92);
+    --inteverted-primery-color: rgb(88 50 34);
+    --inteverted-secondary-color: rgb(244 240 129);
 }
