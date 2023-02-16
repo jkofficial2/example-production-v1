@@ -2,5 +2,8 @@
   "Тест": "Test",
   "Перевод": "Translate",
   "Страница о нас": "About Page",
-  "Главная страница": "Main Page"
+  "Главная страница": "Main Page",
+  "Страница не найдена": "Page not found",
+  "Произошла непредвиденная ошибка": "An unexpected error has occurred",
+  "Обновить страницу": "Refresh page"
 }
