@@ -1,5 +1,5 @@
 import { classNames } from "shared/lib/ClassNames/ClassNames";
-import cls from "./Navbar.module.css";
+import cls from "./Navbar.module.scss";
 import { AppLink } from "shared/ui/AppLink/AppLink";
 import { LangSwitcher } from "features/ui/LangSwitcher/LangSwitcher";
 import { ThemeSwitcher } from "features/ui/ThemeSwitcher";

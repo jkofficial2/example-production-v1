@@ -12,6 +12,5 @@ describe("Sidebar", () => {
         expect(screen.getByTestId("sidebar-toggle")).toBeInTheDocument();
         fireEvent.click(toggle);
         expect(screen.getByTestId("sidebar-toggle")).toHaveClass("collabsed");
-
     });
 });

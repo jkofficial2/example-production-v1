@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-declare module "*.css" {
+declare module "*.scss" {
   interface IClassNames {
     [className: string]: string;
   }

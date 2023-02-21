@@ -1,8 +1,8 @@
 import { ButtonHTMLAttributes, FC, PropsWithChildren } from "react";
 import { classNames } from "shared/lib/ClassNames/ClassNames";
-import cls from "./Button.module.css";
+import cls from "./Button.module.scss";
 
-export type ThemeButton = "clear";
+export type ThemeButton = "clear" | "outline";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;

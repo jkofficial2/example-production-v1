@@ -1,6 +1,6 @@
 import { Button } from "shared/ui/Button/Button";
 import { classNames } from "shared/lib/ClassNames/ClassNames";
-import cls from "./Sidebar.module.css";
+import cls from "./Sidebar.module.scss";
 import { useState } from "react";
 
 interface SidebarProps {

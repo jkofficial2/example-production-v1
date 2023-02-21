@@ -13,3 +13,11 @@
 .some {
     margin-left: 20px;
 }
+
+.outline {
+    background: var(--secondary-color);
+    padding: 10px;
+    border: 1px solid var(--secondary-color);
+    color: var(--primery-color);
+    background-color: red;
+}

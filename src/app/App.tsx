@@ -1,7 +1,7 @@
 import { useTheme } from "./provider/theme";
 import { classNames } from "shared/lib/ClassNames/ClassNames";
 import { AppRouter } from "./provider/router";
-import "./styles/index.css";
+import "./styles/index.scss";
 import { Navbar } from "widgets/Navbar";
 import { Sidebar } from "widgets/Sidebar/ui";
 import { Suspense } from "react";
