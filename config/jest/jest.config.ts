@@ -16,26 +16,20 @@ export default {
 
     // Automatically clear mock calls, instances, contexts and results before every test
     clearMocks: true,
+    testEnvironment: "jsdom",
     coveragePathIgnorePatterns: ["\\\\node_modules\\\\"],
-
-    moduleFileExtensions: [
-        "js",
-        "mjs",
-        "cjs",
-        "jsx",
-        "ts",
-        "tsx",
-        "json",
-        "node",
-    ],
+    moduleFileExtensions: ["js", "jsx", "ts", "tsx", "json", "node"],
     moduleDirectories: ["node_modules"],
     rootDir: "../../",
-    setupFilesAfterEnv: ["<rootDir>/config/jest/setupTests.ts"],
-    // Общий путь для MacOS и Windows
-    testMatch: ["<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)"],
+    modulePaths: ["<rootDir>src"],
+    testMatch: [
+        // Обнаружил разницу между МАК ОС и ВИНДОУС!!!
+        "<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)",
+    ],
+    setupFilesAfterEnv: ["<rootDir>config/jest/setupTests.ts"],
     moduleNameMapper: {
-        "\\.(css)$": "identity-obj-proxy",
-        "\\.svg": path.resolve(__dirname, "jestEmptyComponent.tsx")
+        "\\.s?css$": "identity-obj-proxy",
+        "\\.svg": path.resolve(__dirname, "jestEmptyComponent.tsx"),
     },
     // Indicates whether the coverage information should be collected while executing the test
     // collectCoverage: false,
@@ -141,7 +135,6 @@ export default {
     // snapshotSerializers: [],
 
     // The test environment that will be used for testing
-    testEnvironment: "jsdom",
 
     // Options that will be passed to the testEnvironment
     // testEnvironmentOptions: {},
