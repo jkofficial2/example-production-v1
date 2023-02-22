@@ -1,6 +1,6 @@
 @import "reset";
 @import "variables/global";
-@import "themes/normal";
+@import "themes/light";
 @import "themes/dark";
 
 
@@ -11,11 +11,11 @@
     height: 100vh;
 }
 
-.content-page{
+.content-page {
     display: flex;
 }
 
-.page-wrapper{
+.page-wrapper {
     flex-grow: 1;
     padding: 20px;
 }

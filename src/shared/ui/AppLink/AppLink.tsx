@@ -3,11 +3,11 @@ import { classNames } from "shared/lib/ClassNames/ClassNames";
 import { FC, PropsWithChildren } from "react";
 import cls from "./AppLink.module.scss";
 
-export type AppLinkTheme = "primery" | "secondary";
+export type AppLinkVariant= "primary" | "secondary";
 
 interface AppLinkProps extends LinkProps {
   className?: string;
-  theme?: AppLinkTheme;
+  variant?: AppLinkVariant;
 }
 
 export const AppLink: FC<PropsWithChildren<AppLinkProps>> = (props) => {
@@ -15,13 +15,13 @@ export const AppLink: FC<PropsWithChildren<AppLinkProps>> = (props) => {
         children,
         className,
         to,
-        theme = "primery",
+        variant = "primary",
         ...otherProps
     } = props;
     return (
         <Link
             to={to}
-            className={classNames(cls.AppLink, [className, cls[theme]])}
+            className={classNames(cls.AppLink, [className, cls[variant]])}
             {...otherProps}
         >
             {children}

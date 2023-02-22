@@ -12,13 +12,15 @@
     "watch": "webpack --watch",
     "build:prod": "webpack --env mode=production",
     "build:dev": "webpack --env mode=development",
-    "lint:ts": "npx eslint \"**/*.{ts, tsx}\"",
-    "lint:ts:fix": "npx eslint \"**/*.{ts, tsx}\" --fix",
-    "lint:css": "npx stylelint \"**/*.css\"",
-    "lint:css:fix": "npx stylelint \"**/*.css\" --fix",
-    "unit": "jest --config ./config/jest/jest.config.ts",
+    "lint:ts": "eslint \"**/*.{ts, tsx}\"",
+    "lint:ts:fix": "eslint \"**/*.{ts, tsx}\" --fix",
+    "lint:scss": "stylelint \"**/*.scss\"",
+    "lint:scss:fix": "stylelint \"**/*.scss\" --fix",
+    "test:unit": "jest --config ./config/jest/jest.config.ts",
+    "test:ui": "loki test",
+    "test:ui:ok": "loki test approve",
     "storybook": "start-storybook -p 6006 -c ./config/storybook",
-    "build-storybook": "build-storybook -c ./config/storybook"
+    "storybook:build-": "build-storybook -c ./config/storybook"
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",
@@ -56,11 +58,14 @@
     "eslint-plugin-n": "^15.0.0",
     "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-react": "^7.32.2",
+    "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^29.4.2",
     "jest-environment-jsdom": "^29.4.2",
+    "loki": "^0.31.0",
     "mini-css-extract-plugin": "^2.7.2",
+    "postcss": "8",
     "react-refresh": "^0.14.0",
     "regenerator-runtime": "^0.13.11",
     "sass": "^1.58.3",
@@ -78,7 +83,6 @@
     "webpack-dev-server": "^4.11.1"
   },
   "dependencies": {
-    "file-loader": "^6.2.0",
     "i18next": "^22.4.9",
     "i18next-browser-languagedetector": "^7.0.1",
     "i18next-http-backend": "^2.1.1",
@@ -86,5 +90,20 @@
     "react-dom": "^18.2.0",
     "react-i18next": "^12.1.5",
     "react-router-dom": "^6.8.0"
+  },
+  "loki": {
+    "configurations": {
+      "chrome.laptop": {
+        "target": "chrome.app",
+        "width": 1366,
+        "height": 768,
+        "deviceScaleFactor": 1,
+        "mobile": false
+      },
+      "chrome.iphone7": {
+        "target": "chrome.app",
+        "preset": "iPhone 7"
+      }
+    }
   }
 }
