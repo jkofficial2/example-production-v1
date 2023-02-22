@@ -1,7 +1,8 @@
 import { useTranslation } from "react-i18next";
 import { BugButton } from "app/provider/ErrorBoundary";
+import { FC } from "react";
 
-export default function Main() {
+const Main: FC = () => {
     const { t } = useTranslation("main");
 
     return (
@@ -10,4 +11,6 @@ export default function Main() {
             <BugButton />
         </div>
     );
-}
+};
+
+export default Main;
