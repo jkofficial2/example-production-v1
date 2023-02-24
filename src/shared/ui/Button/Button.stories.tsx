@@ -1,11 +1,27 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { Button, VariantButton } from "./Button";
+import {
+    Button,
+    ButtonBorder,
+    ButtonFont,
+    ButtonPadding,
+    ButtonRaduis,
+    ButtonSize,
+    ButtonVariant,
+} from "./Button";
 import { ThemeDecorator } from "shared/config/storybook/decorators/ThemeDecorator";
 
 import "app/styles/index.scss";
 
 interface ButtonProps {
-    args: { variant: VariantButton; children: string };
+    args: {
+        variant?: ButtonVariant;
+        children: string;
+        radius?: ButtonRaduis;
+        size?: ButtonSize;
+        border?: ButtonBorder;
+        padding?: ButtonPadding;
+        fontSize?: ButtonFont;
+    };
 }
 
 export default {
@@ -36,3 +52,22 @@ OutlineDark.args = {
     variant: "outline",
 };
 OutlineDark.decorators = [ThemeDecorator("dark")];
+
+export const Background: ButtonProps = Template.bind({});
+Background.args = {
+    children: "Text",
+    variant: "background",
+};
+
+export const BackgroundInverted = Template.bind({});
+BackgroundInverted.args = {
+    children: "Text",
+    variant: "backgroundInverted",
+};
+
+export const ButtonSizeS: ButtonProps = Template.bind({});
+ButtonSizeS.args = {
+    children: "Text",
+    variant: "background",
+    size: "size_s",
+};

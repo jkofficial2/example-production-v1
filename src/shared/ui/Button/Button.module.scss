@@ -1,6 +1,7 @@
 .Button {
     cursor: pointer;
-    color: var(--primery-color);
+    color: var(--primary-color);
+    box-sizing: content-box;
 }
 
 .clear {
@@ -18,6 +19,117 @@
     background: var(--secondary-color);
     padding: 10px;
     border: 1px solid var(--secondary-color);
-    color: var(--primery-color);
+    color: var(--primary-color);
     background-color: red;
+}
+
+.background {
+    background-color: var(--bg-color);
+    color: var(--primary-color);
+}
+
+.backgroundInverted {
+    background-color: var(--inverted-bg-color);
+    color: var(--inverted-primary-color);
+}
+
+.size_default {
+    width: 100%;
+    height: 100%;
+}
+
+.size_s {
+    width: var(--font-line-l);
+    height: var(--font-line-s);
+}
+
+.size_m {
+    width: var(--font-line-xl);
+    height: var(--font-line-m);
+}
+
+.size_l {
+    width: var(--font-line-2xl);
+    height: var(--font-line-xl);
+}
+
+.size_xl {
+    width: var(--font-line-2xl);
+    height: var(--font-line-2xl);
+}
+
+.radius_none {
+    border-radius: 0;
+}
+
+.radius_s {
+    border-radius: var(--font-line-s);
+}
+
+.radius_m {
+    border-radius: var(--font-line-m);
+}
+
+.radius_l {
+    border-radius: var(--font-line-l);
+}
+
+.radius_xl {
+    border-radius: var(--font-line-xl);
+}
+
+.radius_2xl {
+    border-radius: var(--font-line-2xl);
+}
+
+.border_none {
+    border: none;
+}
+
+.border_1px {
+    border: 1px solid var(--inverted-bg-color);
+}
+
+.border_2px {
+    border: 2px solid var(--inverted-bg-color);
+}
+
+.border_4px {
+    border: 4px solid var(--inverted-bg-color);
+}
+
+.font_s {
+    font-size: var(--font-s);
+}
+
+.font_m {
+    font-size: var(--font-m);
+}
+
+.font_l {
+    font-size: var(--font-l);
+}
+
+.font_xl {
+    font-size: var(--font-xl);
+}
+
+.font_2xl {
+    font-size: var(--font-2xl);
+}
+
+.padding_s {
+    padding: var(--indent-xs) var(--indent-s);
+}
+
+.padding_m {
+    padding: var(--indent-s) var(--indent-m);
+}
+
+.padding_l {
+    padding: var(--indent-m) var(--indent-l);
+}
+
+.padding_xl {
+    padding: var(--indent-m) var(--indent-xl);
 }
