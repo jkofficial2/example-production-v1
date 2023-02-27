@@ -32,4 +32,10 @@
     /* !TODO использовать трансформ/транслейт */
     --sidebar-width: 80px;
     --sidebar-width-collabsed: 300px;
+
+    // z - Индексы
+    --modal-z-index: 10;
+
+    // Цвета
+    --overlay-color: rgba(0 0 0 / 60%);
 }

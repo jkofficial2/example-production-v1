@@ -1,11 +1,14 @@
 // import "app/styles/index.scss";
 import { Story } from "@storybook/react";
-import { Theme } from "app/provider/theme/lib/ThemeContext";
+import { ThemeProvider } from "app/providers/theme";
+import { Theme } from "app/providers/theme/lib/ThemeContext";
 
 export const ThemeDecorator = (theme: Theme) => (Story: Story) => {
     return (
-        <div className={`app ${theme}`}>
-            <Story />
-        </div>
+        <ThemeProvider initialTheme={theme}>
+            <div className={`app ${theme}`}>
+                <Story />
+            </div>
+        </ThemeProvider>
     );
 };

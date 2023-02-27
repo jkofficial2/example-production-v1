@@ -4,7 +4,7 @@ import cls from "./Sidebar.module.scss";
 import { useState } from "react";
 
 interface SidebarProps {
-  className?: string;
+    className?: string;
 }
 
 export const Sidebar = ({ className }: SidebarProps) => {
@@ -21,7 +21,11 @@ export const Sidebar = ({ className }: SidebarProps) => {
             })}
             data-testid="sidebar"
         >
-            <Button data-testid="sidebar-toggle" variant="backgroundInverted" onClick={onToggle}>
+            <Button
+                data-testid="sidebar-toggle"
+                variant="backgroundInverted"
+                onClick={onToggle}
+            >
                 toggle
             </Button>
         </div>

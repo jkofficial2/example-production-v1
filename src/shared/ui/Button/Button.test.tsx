@@ -1,13 +1,14 @@
+import { ComponentRender } from "shared/lib/tests/ComponentRender/ComponentRender";
 import { Button } from "./Button";
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 
 describe("Button", () => {
     test("with text", () => {
-        render(<Button>TEST</Button>);
+        ComponentRender(<Button>TEST</Button>);
         expect(screen.getByText("TEST")).toBeInTheDocument();
     });
     test("with text and class", () => {
-        render(<Button variant="clear">TEST</Button>);
+        ComponentRender(<Button variant="clear">TEST</Button>);
         expect(screen.getByText("TEST")).toHaveClass("clear");
     });
 });

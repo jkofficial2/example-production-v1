@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { BugButton } from "app/provider/ErrorBoundary";
+import { BugButton } from "app/providers/ErrorBoundary";
 import { FC } from "react";
 
 const Main: FC = () => {

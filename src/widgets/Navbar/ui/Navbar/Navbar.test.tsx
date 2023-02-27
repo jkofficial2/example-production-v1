@@ -1,10 +1,10 @@
 import { screen } from "@testing-library/react";
 import { Navbar } from "./Navbar";
-import ComponentRender from "shared/lib/tests/ComponentRender/ComponentRender";
+import { ComponentRender } from "shared/lib/tests/ComponentRender/ComponentRender";
 
 describe("Navbar", () => {
     test("with only first param", () => {
         ComponentRender(<Navbar />);
-        expect(screen.queryByTestId("navbar1")).not.toBeInTheDocument();
+        expect(screen.getByTestId("navbar")).toBeInTheDocument();
     });
 });

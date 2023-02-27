@@ -2,8 +2,8 @@ import { LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext } from "./ThemeContext";
 import { useContext } from "react";
 
 interface useThemeProps {
-  toggleTheme: () => void;
-  theme: Theme;
+    toggleTheme: () => void;
+    theme: Theme;
 }
 
 export const useTheme = (): useThemeProps => {
@@ -12,6 +12,7 @@ export const useTheme = (): useThemeProps => {
     const toggleTheme = () => {
         const newTheme = theme === "dark" ? "light" : "dark";
         setTheme(newTheme);
+        document.body.className = newTheme;
         localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
     };
     return {

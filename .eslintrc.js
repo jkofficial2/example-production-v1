@@ -8,6 +8,7 @@ module.exports = {
         "eslint:recommended",
         "plugin:react/recommended",
         "plugin:@typescript-eslint/recommended",
+        "plugin:react-hooks/recommended",
     ],
     parser: "@typescript-eslint/parser",
     parserOptions: {
@@ -43,6 +44,8 @@ module.exports = {
         "no-underscore-dangle": "off",
         "react/display-name": "off",
         "linebreak-style": 0,
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "error",
     },
     globals: {
         __IS_DEV__: true,

@@ -1,6 +1,6 @@
 import { classNames } from "shared/lib/ClassNames/ClassNames";
 import cls from "./ThemeSwitcher.module.scss";
-import { useTheme } from "app/provider/theme";
+import { useTheme } from "app/providers/theme";
 import LightIcon from "shared/assets/icons/sun.svg";
 import DarkIcon from "shared/assets/icons/sleeping.svg";
 import { Button } from "shared/ui/Button/Button";
