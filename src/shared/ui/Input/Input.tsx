@@ -1,9 +1,6 @@
 import React, {
     InputHTMLAttributes,
     memo,
-    useEffect,
-    useRef,
-    useState,
 } from "react";
 import cls from "./Input.module.scss";
 import { classNames } from "shared/lib/ClassNames/ClassNames";
@@ -27,29 +24,11 @@ export const Input = memo((props: InputProps) => {
         onChange,
         type = "text",
         placeholder,
-        autofocus,
         ...otherProps
     } = props;
-    const ref = useRef<HTMLInputElement>(null);
-    const [isFocused, setIsFocused] = useState(false);
-
-    useEffect(() => {
-        if (autofocus) {
-            setIsFocused(true);
-            ref.current?.focus();
-        }
-    }, [autofocus]);
 
     const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         onChange?.(e.target.value);
-    };
-
-    const onBlur = () => {
-        setIsFocused(false);
-    };
-
-    const onFocus = () => {
-        setIsFocused(true);
     };
 
     return (
@@ -59,13 +38,10 @@ export const Input = memo((props: InputProps) => {
             )}
             <div className={cls.caretWrapper}>
                 <input
-                    ref={ref}
                     type={type}
                     value={value}
                     onChange={onChangeHandler}
                     className={cls.input}
-                    onFocus={onFocus}
-                    onBlur={onBlur}
                     {...otherProps}
                 />
             </div>
