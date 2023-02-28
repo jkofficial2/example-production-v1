@@ -4,19 +4,25 @@ import { AppLink } from "shared/ui/AppLink/AppLink";
 import { LangSwitcher } from "features/ui/LangSwitcher/LangSwitcher";
 import { ThemeSwitcher } from "features/ui/ThemeSwitcher";
 import { RoutePath } from "shared/config/routeConfig/routeConfig";
-import { Modal } from "shared/ui/Modal/Modal";
 import { useCallback, useState } from "react";
 import { Button } from "shared/ui/Button/Button";
+import { useTranslation } from "react-i18next";
+import { LoginModal } from "features/AuthByUsername";
 
 interface NavbarProps {
     className?: string;
 }
 
 export const Navbar = ({ className }: NavbarProps) => {
+    const { t } = useTranslation();
     const [isAuthModal, setIsAuthModal] = useState(false);
 
-    const onToggleModal = useCallback(() => {
-        setIsAuthModal((prev) => !prev);
+    const onCloseModal = useCallback(() => {
+        setIsAuthModal(false);
+    }, []);
+
+    const onShowModal = useCallback(() => {
+        setIsAuthModal(true);
     }, []);
     return (
         <nav
@@ -40,16 +46,11 @@ export const Navbar = ({ className }: NavbarProps) => {
             <Button
                 variant="backgroundInverted"
                 className={cls.links}
-                onClick={onToggleModal}
+                onClick={onShowModal}
             >
-                Войти
+                {t("Войти")}
             </Button>
-            <Modal isOpen={isAuthModal} onClose={onToggleModal}>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Eligendi in provident veniam illo! At aliquam exercitationem
-                dolorum, similique doloribus beatae libero labore impedit,
-                eaque, delectus fugiat nulla nostrum itaque. Corporis?
-            </Modal>
+            <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
         </nav>
     );
 };
