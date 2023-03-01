@@ -21,7 +21,9 @@ interface ButtonProps {
         border?: ButtonBorder;
         padding?: ButtonPadding;
         fontSize?: ButtonFont;
+        disbled?: boolean;
     };
+    decorators: any;
 }
 
 export default {
@@ -46,7 +48,7 @@ Clear.args = {
     variant: "clear",
 };
 
-export const OutlineDark = Template.bind({});
+export const OutlineDark: ButtonProps = Template.bind({});
 OutlineDark.args = {
     children: "Text",
     variant: "outline",
@@ -59,7 +61,7 @@ Background.args = {
     variant: "background",
 };
 
-export const BackgroundInverted = Template.bind({});
+export const BackgroundInverted: ButtonProps = Template.bind({});
 BackgroundInverted.args = {
     children: "Text",
     variant: "backgroundInverted",
@@ -70,4 +72,12 @@ ButtonSizeS.args = {
     children: "Text",
     variant: "background",
     size: "size_s",
+};
+
+export const Disabled: ButtonProps = Template.bind({});
+Disabled.args = {
+    children: "Text",
+    variant: "background",
+    size: "size_s",
+    disbled: true,
 };

@@ -8,7 +8,12 @@ export type ButtonVariant =
     | "background"
     | "backgroundInverted";
 
-export type ButtonSize = "size_default"| "size_s" | "size_m" | "size_l" | "size_xl";
+export type ButtonSize =
+    | "size_default"
+    | "size_s"
+    | "size_m"
+    | "size_l"
+    | "size_xl";
 
 export type ButtonRaduis =
     | "radius_none"
@@ -45,6 +50,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     border?: ButtonBorder;
     padding?: ButtonPadding;
     fontSize?: ButtonFont;
+    disabled?: boolean;
 }
 
 export const Button: FC<PropsWithChildren<ButtonProps>> = (props) => {
@@ -55,24 +61,33 @@ export const Button: FC<PropsWithChildren<ButtonProps>> = (props) => {
         radius,
         size = "size_l",
         border = "border_none",
-        padding ="padding_l",
+        padding = "padding_l",
         fontSize = "font_m",
+        disabled,
         ...otherProps
     } = props;
+    const mods = {
+        [cls.disabled]: disabled,
+    };
 
     return (
         <button
             type="button"
-            className={classNames(cls.Button, [
-                className,
-                cls[variant],
-                cls[radius],
-                cls[size],
-                cls[border],
-                cls[padding],
-                cls[fontSize],
-            ])}
+            className={classNames(
+                cls.Button,
+                [
+                    className,
+                    cls[variant],
+                    cls[radius],
+                    cls[size],
+                    cls[border],
+                    cls[padding],
+                    cls[fontSize],
+                ],
+                mods
+            )}
             {...otherProps}
+            disabled={disabled}
         >
             {children}
         </button>

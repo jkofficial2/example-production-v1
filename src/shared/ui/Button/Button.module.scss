@@ -133,3 +133,7 @@
 .padding_xl {
     padding: var(--indent-m) var(--indent-xl);
 }
+
+.disabled {
+    opacity: 0.5;
+}
