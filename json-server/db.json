@@ -1,29 +1,38 @@
 {
     "posts": [
         {
-            "id": 1,
+            "id": "1",
             "title": "json-server",
-            "userId": 1
+            "userId": "1"
         },
         {
-            "id": 2,
+            "id": "2",
             "title": "json-server",
-            "userId": 2
+            "userId": "2"
         }
     ],
     "comments": [
         {
-            "id": 1,
+            "id": "1",
             "body": "some comment",
-            "postId": 1
+            "postId": "1"
         }
     ],
     "users": [
         {
-            "id": 1,
+            "id": "1",
             "username": "admin",
             "password": "123"
         }
     ],
-    "profile": { "name": "typicode" }
+    "profile": {
+        "firstName": "Тигран",
+        "secondName": "Маргарян",
+        "age": "24",
+        "currency": "RUB",
+        "country": "Россия",
+        "city": "Ростов-на-Дону",
+        "userName": "admin",
+        "avatar": "https://media.wired.com/photos/599dd02bf2c93452115817e9/125:94/w_2000,h_1504,c_limit/joker-FA.jpg"
+    }
 }

@@ -6,13 +6,13 @@ on:
     branches: [ main, develop ]
 jobs:
   pipeline:
-    runs-on: windows-2022
+    runs-on: windows-2019
     strategy:
       matrix:
         node-version: [ 18.x ]
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Staring Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
@@ -33,4 +33,4 @@ jobs:
       - name: build storybook
         run: yarn storybook:build
       - name: screenshot testing
-        run: yarn test:ui
+        run: yarn test:ui:ci

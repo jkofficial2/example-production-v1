@@ -4,6 +4,7 @@ import { buildLoaders } from "./buildLoaders";
 import { buildPlugins } from "./buildPlugins";
 import buildResolve from "./buildResolve";
 import buildDevServer from "./buildDevServer";
+import buildOptimization from "./buildOptimization";
 
 export default function buildWebpackConfig(
     options: BuildOptions
@@ -26,6 +27,7 @@ export default function buildWebpackConfig(
         devtool: isDev ? "inline-source-map" : undefined,
 
         devServer: isDev ? buildDevServer(options) : undefined,
+        optimization: buildOptimization(),
         cache: false,
     };
 }

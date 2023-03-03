@@ -1,16 +1,17 @@
 import { Link, LinkProps } from "react-router-dom";
 import { classNames } from "shared/lib/ClassNames/ClassNames";
-import { FC, PropsWithChildren } from "react";
+import { ReactNode, memo } from "react";
 import cls from "./AppLink.module.scss";
 
-export type AppLinkVariant= "primary" | "secondary";
+export type AppLinkVariant = "primary" | "secondary";
 
 interface AppLinkProps extends LinkProps {
-  className?: string;
-  variant?: AppLinkVariant;
+    className?: string;
+    variant?: AppLinkVariant;
+    children: ReactNode;
 }
 
-export const AppLink: FC<PropsWithChildren<AppLinkProps>> = (props) => {
+export const AppLink = memo((props: AppLinkProps) => {
     const {
         children,
         className,
@@ -27,4 +28,4 @@ export const AppLink: FC<PropsWithChildren<AppLinkProps>> = (props) => {
             {children}
         </Link>
     );
-};
+});

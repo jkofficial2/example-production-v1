@@ -1,11 +1,6 @@
 import { BuildOptions } from "./types/config";
 import HtmlWebpackPlugin from "html-webpack-plugin";
-import {
-    DefinePlugin,
-    HotModuleReplacementPlugin,
-    ProgressPlugin,
-    WebpackPluginInstance,
-} from "webpack";
+import { DefinePlugin, ProgressPlugin, WebpackPluginInstance } from "webpack";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
 

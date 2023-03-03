@@ -19,5 +19,18 @@
       ""
     ],
     "description": "React Functional Component"
+  },
+  "React Testing": {
+    "prefix": "rts",
+    "body": [
+      "describe(\"${TM_FILENAME_BASE}\", () => {",
+      "    test(\"\", () => {",
+      "        expect();",
+      "    });",
+      "});",
+      ""
+    ],
+    "description": "React Testing Jest"
   }
 }
+

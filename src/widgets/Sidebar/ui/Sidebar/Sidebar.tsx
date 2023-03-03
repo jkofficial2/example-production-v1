@@ -1,13 +1,13 @@
 import { Button } from "shared/ui/Button/Button";
 import { classNames } from "shared/lib/ClassNames/ClassNames";
 import cls from "./Sidebar.module.scss";
-import { useState } from "react";
+import { memo, useState } from "react";
 
 interface SidebarProps {
     className?: string;
 }
 
-export const Sidebar = ({ className }: SidebarProps) => {
+export const Sidebar = memo(({ className }: SidebarProps) => {
     const [collabsed, setCollabsed] = useState(false);
 
     const onToggle = () => {
@@ -30,4 +30,4 @@ export const Sidebar = ({ className }: SidebarProps) => {
             </Button>
         </div>
     );
-};
+});

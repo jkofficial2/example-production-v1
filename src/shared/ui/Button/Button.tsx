@@ -1,4 +1,10 @@
-import { ButtonHTMLAttributes, FC, PropsWithChildren } from "react";
+import {
+    ButtonHTMLAttributes,
+    FC,
+    PropsWithChildren,
+    ReactNode,
+    memo,
+} from "react";
 import { classNames } from "shared/lib/ClassNames/ClassNames";
 import cls from "./Button.module.scss";
 
@@ -44,16 +50,17 @@ export type ButtonFont =
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string;
-    variant?: ButtonVariant;
+    variant: ButtonVariant;
     radius?: ButtonRaduis;
     size?: ButtonSize;
     border?: ButtonBorder;
     padding?: ButtonPadding;
     fontSize?: ButtonFont;
     disabled?: boolean;
+    children: ReactNode;
 }
 
-export const Button: FC<PropsWithChildren<ButtonProps>> = (props) => {
+export const Button = memo((props: ButtonProps) => {
     const {
         className,
         children,
@@ -92,4 +99,4 @@ export const Button: FC<PropsWithChildren<ButtonProps>> = (props) => {
             {children}
         </button>
     );
-};
+});

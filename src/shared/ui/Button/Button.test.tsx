@@ -4,7 +4,7 @@ import { screen } from "@testing-library/react";
 
 describe("Button", () => {
     test("with text", () => {
-        ComponentRender(<Button>TEST</Button>);
+        ComponentRender(<Button variant="outline">TEST</Button>);
         expect(screen.getByText("TEST")).toBeInTheDocument();
     });
     test("with text and class", () => {

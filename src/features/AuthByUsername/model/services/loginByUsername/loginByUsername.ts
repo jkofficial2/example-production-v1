@@ -6,6 +6,7 @@ import { USER_LOCALSTORAGE_KEY } from "shared/const/localstorage";
 interface LoginByUsernameProps {
     username: string;
     password: string;
+    id?: string;
 }
 
 export const loginByUsername = createAsyncThunk<

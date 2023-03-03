@@ -20,9 +20,10 @@ import {
 
 export interface LoginFormProps {
     className?: string;
+    onSucces: () => void;
 }
 
-const LoginForm = memo(({ className }: LoginFormProps) => {
+const LoginForm = memo(({ className, onSucces }: LoginFormProps) => {
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
     const username = useSelector(getLoginUsername);
@@ -47,9 +48,12 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
         },
         [dispatch]
     );
-    const onLoginClick = useCallback(() => {
-        dispatch(loginByUsername({ username, password }));
-    }, [dispatch, password, username]);
+    const onLoginClick = useCallback(async () => {
+        const result = await dispatch(loginByUsername({ username, password }));
+        if (result.meta.requestStatus === "fulfilled") {
+            onSucces();
+        }
+    }, [dispatch, onSucces, password, username]);
 
     return (
         <DynamicModuleLoader removeAfterUnmount reducers={initialReducers}>
@@ -76,6 +80,7 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
                     value={password}
                 />
                 <Button
+                    variant="backgroundInverted"
                     className={cls.loginBtn}
                     onClick={onLoginClick}
                     disabled={isLoading}
