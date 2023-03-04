@@ -1,17 +1,13 @@
 import { BuildOptions } from "./types/config";
 import HtmlWebpackPlugin from "html-webpack-plugin";
-import {
-    DefinePlugin,
-    HotModuleReplacementPlugin,
-    ProgressPlugin,
-    WebpackPluginInstance,
-} from "webpack";
+import { DefinePlugin, ProgressPlugin, WebpackPluginInstance } from "webpack";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
 
 export function buildPlugins({
     paths,
     isDev,
+    apiUrl,
 }: BuildOptions): WebpackPluginInstance[] {
     const plugins = [
         new ProgressPlugin(),
@@ -24,11 +20,11 @@ export function buildPlugins({
         }),
         new DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev),
+            __API__: JSON.stringify(apiUrl),
         }),
     ];
 
     if (isDev) {
-        plugins.push(new HotModuleReplacementPlugin());
         plugins.push(
             new BundleAnalyzerPlugin({
                 openAnalyzer: false,

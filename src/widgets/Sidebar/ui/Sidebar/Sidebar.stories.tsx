@@ -3,7 +3,6 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import "app/styles/index.scss";
 import { ThemeDecorator } from "shared/config/storybook/decorators/ThemeDecorator";
 import { Sidebar } from "./Sidebar";
-import { Theme } from "app/provider/theme/lib/ThemeContext";
 
 export default {
     title: "widget/Sidebar",

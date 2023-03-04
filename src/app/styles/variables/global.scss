@@ -1,11 +1,29 @@
 :root {
+    /* Шрифты */
+
     --font-family: "Bahnschtift", "Courier New", "monospace";
+    --font-size-s: 12px;
+    --font-line-s: 16px;
+    --font-s: var(--font-size-s) / var(--font-line-s) var(--font-family);
     --font-size-m: 16px;
     --font-line-m: 24px;
     --font-m: var(--font-size-m) / var(--font-line-m) var(--font-family);
     --font-size-l: 24px;
     --font-line-l: 32px;
     --font-l: var(--font-size-l) / var(--font-line-l) var(--font-family);
+    --font-size-xl: 32px;
+    --font-line-xl: 40px;
+    --font-xl: var(--font-size-xl) / var(--font-line-xl) var(--font-family);
+    --font-size-2xl: 40px;
+    --font-line-2xl: 48px;
+    --font-2xl: var(--font-size-2xl) / var(--font-line-2xl) var(--font-family);
+    --indent-xs: 4px;
+    --indent-s: 8px;
+    --indent-m: 12px;
+    --indent-l: 16px;
+    --indent-xl: 24px;
+    --indent-2xl: 32px;
+    --indent-3xl: 40px;
 
     /* Размеры */
 
@@ -15,4 +33,11 @@
     --sidebar-width: 80px;
     --sidebar-width-collabsed: 300px;
 
+    // z - Индексы
+    --modal-z-index: 10;
+
+    // Цвета
+    --overlay-color: rgba(0 0 0 / 60%);
+    --red-light: #ff00;
+    --red-dark: #ce0505;
 }

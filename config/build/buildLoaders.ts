@@ -3,7 +3,6 @@ import { BuildOptions } from "./types/config";
 import { buildCssLoader } from "./loaders/buildCssLoader";
 
 export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
-    
     const cssLoader = buildCssLoader(isDev);
 
     const tsLoader = {
@@ -13,7 +12,7 @@ export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
     };
 
     const fileLoader = {
-        test: /\.(png|jpe?g|gif)$/i,
+        test: /\.(png|jpe?g|gif|woff2|woff)$/i,
         use: [
             {
                 loader: "file-loader",
@@ -34,15 +33,18 @@ export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
             loader: "babel-loader",
             options: {
                 presets: ["@babel/preset-env"],
+                plugins: [
+                    [
+                        "i18next-extract",
+                        {
+                            locales: ["ru", "en"],
+                            keyAsDefaultValue: true,
+                        },
+                    ],
+                ],
             },
         },
     };
 
-    return [
-        svgLoadger,
-        fileLoader, 
-        babelLoader,
-        tsLoader, 
-        cssLoader, 
-    ];
+    return [fileLoader, svgLoadger, babelLoader, tsLoader, cssLoader];
 }
