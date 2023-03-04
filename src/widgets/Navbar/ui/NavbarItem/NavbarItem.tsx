@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 import { memo } from "react";
 
 interface NavbarItemProps {
-    item?: NavbarItemsType;
+    item: NavbarItemsType;
 }
 
 export const NavbarItem = memo(({ item }: NavbarItemProps) => {

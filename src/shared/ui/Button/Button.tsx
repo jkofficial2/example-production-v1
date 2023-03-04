@@ -1,11 +1,5 @@
-import {
-    ButtonHTMLAttributes,
-    FC,
-    PropsWithChildren,
-    ReactNode,
-    memo,
-} from "react";
-import { classNames } from "shared/lib/ClassNames/ClassNames";
+import { ButtonHTMLAttributes, ReactNode, memo } from "react";
+import { Mods, classNames } from "shared/lib/ClassNames/ClassNames";
 import cls from "./Button.module.scss";
 
 export type ButtonVariant =
@@ -58,6 +52,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     fontSize?: ButtonFont;
     disabled?: boolean;
     children: ReactNode;
+    disbled?: boolean;
 }
 
 export const Button = memo((props: ButtonProps) => {
@@ -65,7 +60,7 @@ export const Button = memo((props: ButtonProps) => {
         className,
         children,
         variant,
-        radius,
+        radius = "radius_l",
         size = "size_l",
         border = "border_none",
         padding = "padding_l",
@@ -73,7 +68,7 @@ export const Button = memo((props: ButtonProps) => {
         disabled,
         ...otherProps
     } = props;
-    const mods = {
+    const mods: Mods = {
         [cls.disabled]: disabled,
     };
 

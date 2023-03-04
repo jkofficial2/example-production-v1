@@ -22,7 +22,7 @@ module.exports = {
     rules: {
         "react/jsx-indent": [2, 4],
         "react/jsx-indent-props": [2, 4],
-        "no-undef": "warn",
+        "no-undef": "off",
         indent: [2, 4],
         "react/jsx-filename-extension": [
             2,
@@ -51,6 +51,7 @@ module.exports = {
         __IS_DEV__: true,
         __dirname: true,
         _: true,
+        __API__: true,
     },
     settings: {
         react: {

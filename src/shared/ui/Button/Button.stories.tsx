@@ -1,30 +1,10 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import {
     Button,
-    ButtonBorder,
-    ButtonFont,
-    ButtonPadding,
-    ButtonRaduis,
-    ButtonSize,
-    ButtonVariant,
 } from "./Button";
 import { ThemeDecorator } from "shared/config/storybook/decorators/ThemeDecorator";
 
 import "app/styles/index.scss";
-
-interface ButtonProps {
-    args: {
-        variant?: ButtonVariant;
-        children: string;
-        radius?: ButtonRaduis;
-        size?: ButtonSize;
-        border?: ButtonBorder;
-        padding?: ButtonPadding;
-        fontSize?: ButtonFont;
-        disbled?: boolean;
-    };
-    decorators: any;
-}
 
 export default {
     title: "shared/Button",
@@ -36,45 +16,45 @@ export default {
 
 const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 
-export const Outline: ButtonProps = Template.bind({});
+export const Outline = Template.bind({});
 Outline.args = {
     children: "Tdsext",
     variant: "outline",
 };
 
-export const Clear: ButtonProps = Template.bind({});
+export const Clear = Template.bind({});
 Clear.args = {
     children: "Text",
     variant: "clear",
 };
 
-export const OutlineDark: ButtonProps = Template.bind({});
+export const OutlineDark = Template.bind({});
 OutlineDark.args = {
     children: "Text",
     variant: "outline",
 };
 OutlineDark.decorators = [ThemeDecorator("dark")];
 
-export const Background: ButtonProps = Template.bind({});
+export const Background = Template.bind({});
 Background.args = {
     children: "Text",
     variant: "background",
 };
 
-export const BackgroundInverted: ButtonProps = Template.bind({});
+export const BackgroundInverted = Template.bind({});
 BackgroundInverted.args = {
     children: "Text",
     variant: "backgroundInverted",
 };
 
-export const ButtonSizeS: ButtonProps = Template.bind({});
+export const ButtonSizeS = Template.bind({});
 ButtonSizeS.args = {
     children: "Text",
     variant: "background",
     size: "size_s",
 };
 
-export const Disabled: ButtonProps = Template.bind({});
+export const Disabled = Template.bind({});
 Disabled.args = {
     children: "Text",
     variant: "background",

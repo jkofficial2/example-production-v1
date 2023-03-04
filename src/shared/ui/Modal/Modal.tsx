@@ -1,4 +1,5 @@
 import React, {
+    MutableRefObject,
     ReactNode,
     useCallback,
     useEffect,
@@ -6,7 +7,7 @@ import React, {
     useState,
 } from "react";
 import cls from "./Modal.module.scss";
-import { classNames } from "shared/lib/ClassNames/ClassNames";
+import { Mods, classNames } from "shared/lib/ClassNames/ClassNames";
 import { Portal } from "../Portal/Portal";
 
 interface ModalProps {
@@ -23,7 +24,9 @@ export const Modal = (props: ModalProps) => {
     const { className, children, isOpen, onClose } = props;
 
     const [isClosing, setIsClosing] = useState(false);
-    const timerRef = useRef<ReturnType<typeof setTimeout>>();
+    const timerRef = useRef() as MutableRefObject<
+        ReturnType<typeof setTimeout>
+    >;
 
     const closeHandler = useCallback(() => {
         if (onClose) {
@@ -59,7 +62,7 @@ export const Modal = (props: ModalProps) => {
         };
     }, [isOpen, onKeyDown]);
 
-    const toggleClasses: Record<string, boolean> = {
+    const toggleClasses: Mods = {
         [cls.opened]: isOpen,
         [cls.closed]: isClosing,
     };
