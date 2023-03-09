@@ -1,4 +1,4 @@
-import React, { ErrorInfo, ReactNode, Suspense } from "react";
+import { Component, ErrorInfo, ReactNode, Suspense } from "react";
 import { PageError } from "widgets/PageError/ui";
 
 interface ErrorBoundaryProps {
@@ -9,7 +9,7 @@ interface ErrorBoundaryState {
   hasError: boolean;
 }
 
-export class ErrorBoundary extends React.Component<
+export class ErrorBoundary extends Component<
   ErrorBoundaryProps,
   ErrorBoundaryState
 > {

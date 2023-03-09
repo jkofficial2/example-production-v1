@@ -17,7 +17,7 @@ export default function App() {
     }, [dispatch]);
     return (
         <div className={classNames("app", [theme], {})}>
-            <Suspense fallback="...Loading">
+            <Suspense fallback="">
                 <Navbar />
                 <div className="content-page" data-testid="Navbar">
                     <Sidebar />
