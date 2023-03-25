@@ -1,8 +1,10 @@
+import { FunctionComponent } from "react";
 import { RoutePath } from "shared/config/routeConfig/routeConfig";
 export interface NavbarItemsType {
     path: string;
     text: string;
-    Icon?: React.FunctionComponent<React.SVGAttributes<SVGAElement>>;
+    Icon?: FunctionComponent<React.SVGAttributes<SVGAElement>>;
+    authOnly?: boolean;
 }
 
 export const NavbarItemsList: NavbarItemsType[] = [
@@ -17,5 +19,11 @@ export const NavbarItemsList: NavbarItemsType[] = [
     {
         path: RoutePath.profile,
         text: "Профиль",
+        authOnly: true,
+    },
+    {
+        path: RoutePath.articles,
+        text: "Статьи",
+        authOnly: true,
     },
 ];

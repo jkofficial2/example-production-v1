@@ -6,22 +6,23 @@ import { Navbar } from "widgets/Navbar/ui";
 import { Sidebar } from "widgets/Sidebar/ui";
 import { Suspense, useEffect } from "react";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
-import { userActions } from "entities/User";
+import { getUserMounted, userActions } from "entities/User";
+import { useSelector } from "react-redux";
 
 export default function App() {
     const { theme } = useTheme();
     const dispatch = useAppDispatch();
-
+    const mounted = useSelector(getUserMounted);
     useEffect(() => {
         dispatch(userActions.initAuthData());
     }, [dispatch]);
     return (
         <div className={classNames("app", [theme], {})}>
-            <Suspense fallback="...Loading">
+            <Suspense fallback="">
                 <Navbar />
                 <div className="content-page" data-testid="Navbar">
                     <Sidebar />
-                    <AppRouter />
+                    {mounted && <AppRouter />}
                 </div>
             </Suspense>
         </div>

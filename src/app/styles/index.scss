@@ -1,5 +1,6 @@
 @import "reset";
 @import "variables/global";
+@import "variables/indent";
 @import "themes/light";
 @import "themes/dark";
 
@@ -20,4 +21,7 @@ body {
 .page-wrapper {
     flex-grow: 1;
     padding: 20px;
+    height: calc(100vh - var(--navbar-height));
+    overflow-y: auto;
+    width: 100%;
 }

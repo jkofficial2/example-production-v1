@@ -18,6 +18,7 @@ export default function buildWebpackConfig(
             filename: "[name].[contenthash].js",
             path: paths.build,
             clean: true,
+            publicPath: "/",
         },
         module: {
             rules: buildLoaders(options),
@@ -28,6 +29,6 @@ export default function buildWebpackConfig(
 
         devServer: isDev ? buildDevServer(options) : undefined,
         optimization: buildOptimization(),
-        cache: false,
+        cache: true,
     };
 }

@@ -1,0 +1,99 @@
+.Loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loaderWrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: 5%;
+}
+
+.loader {
+    display: block;
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin: -15px 0 0 -15px;
+    border-radius: 50%;
+    border: 8px solid transparent;
+    border-top-color: #019aa2;
+    z-index: 15;
+    animation: spin 2s linear infinite;
+}
+
+.loader::before {
+    content: "";
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    right: 6px;
+    bottom: 6px;
+    border-radius: 50%;
+    border: 8px solid transparent;
+    border-top-color: #393e46;
+    animation: spin 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.loader::after {
+    content: "";
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    border-radius: 50%;
+    border: 8px solid transparent;
+    border-top-color: #00fff5;
+    animation: spin 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.ball {
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background: white;
+    position: fixed;
+    bottom: 35px;
+    right: 35px;
+    left: 35px;
+    top: 35px;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.label {
+    display: block;
+    position: relative;
+    top: 33%;
+    margin: 24px 0 0;
+}
+
+p {
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+}

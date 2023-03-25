@@ -1,10 +1,6 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import {
-    Button,
-} from "./Button";
+import { Button } from "./Button";
 import { ThemeDecorator } from "shared/config/storybook/decorators/ThemeDecorator";
-
-import "app/styles/index.scss";
 
 export default {
     title: "shared/Button",
@@ -51,13 +47,13 @@ export const ButtonSizeS = Template.bind({});
 ButtonSizeS.args = {
     children: "Text",
     variant: "background",
-    size: "size_s",
+    size: "size-padding_4_16",
 };
 
 export const Disabled = Template.bind({});
 Disabled.args = {
     children: "Text",
     variant: "background",
-    size: "size_s",
+    size: "size-padding_8_16",
     disbled: true,
 };

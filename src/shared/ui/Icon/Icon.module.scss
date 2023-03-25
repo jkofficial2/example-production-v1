@@ -1,0 +1,46 @@
+.Icon {
+    display: block;
+
+    & svg {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+
+    fill: var(--primary-color);
+}
+
+.default {
+    width: 100%;
+    height: 100%;
+}
+
+.size_s {
+    width: var(--indent16);
+    height: var(--indent16);
+}
+
+.size_m {
+    width: var(--indent24);
+    height: var(--indent24);
+}
+
+.size_l {
+    width: var(--indent32);
+    height: var(--indent32);
+}
+
+.size_lg {
+    width: var(--indent40);
+    height: var(--indent40);
+}
+
+.size_xl {
+    width: var(--indent48);
+    height: var(--indent48);
+}
+
+.size_2xl {
+    width: var(--indent56);
+    height: var(--indent56);
+}

@@ -11,6 +11,8 @@ import { getUserAuthData, userActions } from "entities/User";
 import { useSelector } from "react-redux";
 import { NavbarItemsList } from "../../module/items";
 import { NavbarItem } from "../NavbarItem/NavbarItem";
+import Logo from "shared/assets/icons/logo2.svg";
+import { Icon } from "shared/ui/Icon/Icon";
 
 interface NavbarProps {
     className?: string;
@@ -49,6 +51,12 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                 {NavbarItemsList.map((item) => (
                     <NavbarItem item={item} key={item.path} />
                 ))}
+                <Icon size="size_l" className="">
+                    <Logo
+                        fill="--orange-color"
+                        className={classNames(cls.SvgLogo, [className])}
+                    />
+                </Icon>
             </div>
             <div className={classNames(cls.navbarRight)}>
                 <ThemeSwitcher />

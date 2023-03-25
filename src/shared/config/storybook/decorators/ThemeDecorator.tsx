@@ -1,4 +1,3 @@
-// import "app/styles/index.scss";
 import { Story } from "@storybook/react";
 import { ThemeProvider } from "app/providers/theme";
 import { Theme } from "app/providers/theme/lib/ThemeContext";
