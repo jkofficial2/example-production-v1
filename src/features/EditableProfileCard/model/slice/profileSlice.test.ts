@@ -5,7 +5,6 @@ import {
     profileReducer,
 } from "features/EditableProfileCard";
 import { updateProfileData } from "../services/updateProfileData/updateProfileData";
-import { ValidateProfileError } from "../types/profile";
 
 const data: Profile = {
     username: "admin",
@@ -62,7 +61,7 @@ describe("profileSlice.test", () => {
     test("test update profile service pending", () => {
         const state: DeepPartial<ProfileSchema> = {
             isLoading: false,
-            validateErrors: [ValidateProfileError.SERVER_ERROR],
+            validateErrors: ["SERVER_ERROR"],
         };
 
         expect(

@@ -23,7 +23,7 @@ export interface LoginFormProps {
     onSucces: () => void;
 }
 
-const LoginForm = memo(({ className, onSucces }: LoginFormProps) => {
+const LoginForm = ({ className, onSucces }: LoginFormProps) => {
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
     const username = useSelector(getLoginUsername);
@@ -90,6 +90,6 @@ const LoginForm = memo(({ className, onSucces }: LoginFormProps) => {
             </div>
         </DynamicModuleLoader>
     );
-});
+};
 
-export default LoginForm;
+export default memo(LoginForm);

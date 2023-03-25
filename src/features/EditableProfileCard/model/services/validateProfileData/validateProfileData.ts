@@ -1,24 +1,24 @@
-import { Profile, ValidateProfileError } from "../../types/profile";
+import { Profile, ValidateProfileErrorUnion } from "../../types/profile";
 
 export const validateProfileData = (profile?: Profile) => {
     if (!profile) {
-        return [ValidateProfileError.NO_DATA];
+        return ["NO_DATA"];
     }
 
     const { firstName, lastName, age, country } = profile;
 
-    const errors: ValidateProfileError[] = [];
+    const errors: ValidateProfileErrorUnion[] = [];
 
     if (!firstName || !lastName) {
-        errors.push(ValidateProfileError.INCORRECT_USER_DATA);
+        errors.push("INCORRECT_USER_DATA");
     }
 
     if (!age || !Number.isInteger(age)) {
-        errors.push(ValidateProfileError.INCORRECT_AGE);
+        errors.push("INCORRECT_AGE");
     }
 
     if (!country) {
-        errors.push(ValidateProfileError.INCORRECT_COUNTRY);
+        errors.push("INCORRECT_COUNTRY");
     }
 
     return errors;

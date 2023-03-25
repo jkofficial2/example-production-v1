@@ -4,6 +4,8 @@ import { AppLink } from "shared/ui/AppLink/AppLink";
 import { NavbarItemsType } from "widgets/Navbar/module/items";
 import { useTranslation } from "react-i18next";
 import { memo } from "react";
+import { getUserAuthData } from "entities/User";
+import { useSelector } from "react-redux";
 
 interface NavbarItemProps {
     item: NavbarItemsType;
@@ -11,7 +13,11 @@ interface NavbarItemProps {
 
 export const NavbarItem = memo(({ item }: NavbarItemProps) => {
     const { t } = useTranslation();
+    const isAuth = useSelector(getUserAuthData);
 
+    if (item.authOnly && !isAuth) {
+        return null;
+    }
     return (
         <AppLink
             variant="primary"

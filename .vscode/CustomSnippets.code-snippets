@@ -1,0 +1,82 @@
+{
+  "React Functional Component": {
+    "prefix": "rcwi",
+    "body": [
+      "import { useTranslation } from \"react-i18next\";",
+      "import { classNames } from \"shared/lib/ClassNames/ClassNames\"; ",
+      "import cls from \"./${TM_FILENAME_BASE}.module.scss\";",
+      "import { memo } from \"react\";",
+      "",
+      "interface ${TM_FILENAME_BASE}Props {",
+      "  className?: string;",
+      "}",
+      "",
+      "export const ${TM_FILENAME_BASE} = memo((props:${TM_FILENAME_BASE}Props) => {",
+      "    const {className} = props;",
+      "    const { t } = useTranslation();",
+      "    return (",
+      "        <div className={classNames(cls.${TM_FILENAME_BASE}, [className])}>",
+      "            $2",
+      "        </div>",
+      "    );",
+      "});",
+      ""
+    ],
+    "description": "React Functional Component"
+  },
+  "React Testing": {
+    "prefix": "rts",
+    "body": [
+      "describe(\"${TM_FILENAME_BASE}\", () => {",
+      "    test(\"\", () => {",
+      "        expect();",
+      "    });",
+      "});",
+      ""
+    ],
+    "description": "React Testing Jest"
+  },
+  "React Redux slice": {
+    "prefix": "rrsc",
+    "body": [
+      "import { PayloadAction, createSlice } from \"@reduxjs/toolkit\";",
+      "",
+      "const initialState: Interface = {",
+      "    isLoading: false,",
+      "    data: undefined,",
+      "    error: undefined,",
+      "};",
+      "",
+      "export const ${TM_FILENAME_BASE} = createSlice({",
+      "    name: \"${TM_FILENAME_BASE}\",",
+      "    initialState,",
+      "    reducers: {},",
+      "    extraReducers: (builder) => {",
+      "        builder",
+      "            .addCase(FETCH.pending, (state) => {",
+      "                state.error = undefined;",
+      "                state.isLoading = true;",
+      "            })",
+      "            .addCase(",
+      "                FETCH.fulfilled,",
+      "                (state, action: PayloadAction<TYPE>) => {",
+      "                    state.isLoading = false;",
+      "                    state.data = action.payload;",
+      "                }",
+      "            )",
+      "            .addCase(FETCH.rejected, (state, action) => {",
+      "                state.isLoading = false;",
+      "                state.error = action.payload;",
+      "            });",
+      "    },",
+      "});",
+      "",
+      "// Action creators are generated for each case reducer function",
+      "export const { actions: ${TM_FILENAME_BASE}Actions } = ${TM_FILENAME_BASE}Slice;",
+      "export const { reducer: ${TM_FILENAME_BASE}Reducer } = ${TM_FILENAME_BASE}Slice;",
+      "",
+    ],
+    "description": "React Redux Slice Component"
+  }
+}
+

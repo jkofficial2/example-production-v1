@@ -1,8 +1,13 @@
-:root, .light {
-    --bg-color: rgb(216 181 246);
-    --inteverted-bg-color: rgb(48 7 84);
-    --primary-color: rgb(64 197 148);
-    --secondary-color: rgb(239 92 92);
+:root,
+.light {
+    --bg-color: rgb(40 61 59);
+    --inteverted-bg-color: rgba(6 7 7 85%);
+    --primary-color: rgb(237 221 212);
+    --secondary-color: rgb(33 88 90);
     --inteverted-primary-color: rgb(164 107 82);
     --inteverted-secondary-color: rgb(244 240 129);
+
+    // skeleton
+    --skeleton-color: #fff;
+    --skeleton-shadow: rgba(0 0 0 / 20%);
 }

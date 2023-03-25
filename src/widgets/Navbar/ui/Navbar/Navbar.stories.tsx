@@ -1,6 +1,5 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
-import "app/styles/index.scss";
 import { ThemeDecorator } from "shared/config/storybook/decorators/ThemeDecorator";
 import { Navbar } from "./Navbar";
 import { StoreDecorator } from "shared/config/storybook/decorators/StoreDecorator";

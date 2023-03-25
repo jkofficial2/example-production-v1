@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { Api } from "shared/api/api";
 import { CombinedState, Reducer, ReducersMapObject, configureStore } from "@reduxjs/toolkit";
-import { counterReducer } from "entities/Counter";
 import { StateSchema, ThunkExtraArg } from "./StateSchema";
 import { userReducer } from "entities/User";
 import { createReducerManager } from "./reducerManager";
@@ -14,7 +13,6 @@ export function createReduxStore(
 ) {
     const rootReducers: ReducersMapObject<StateSchema> = {
         ...asyncReducers,
-        counter: counterReducer,
         user: userReducer,
     };
 

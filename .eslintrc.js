@@ -52,7 +52,7 @@ module.exports = {
         __dirname: true,
         _: true,
         __API__: true,
-        __PROJECT__: true
+        __PROJECT__: true,
     },
     settings: {
         react: {

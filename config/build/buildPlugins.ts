@@ -3,12 +3,13 @@ import HtmlWebpackPlugin from "html-webpack-plugin";
 import { DefinePlugin, ProgressPlugin, WebpackPluginInstance } from "webpack";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
+import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin";
 
 export function buildPlugins({
     paths,
     isDev,
     apiUrl,
-    project
+    project,
 }: BuildOptions): WebpackPluginInstance[] {
     const plugins = [
         new ProgressPlugin(),
@@ -25,13 +26,17 @@ export function buildPlugins({
             __PROJECT__: JSON.stringify(project),
         }),
     ];
-
+    // plugins.push(
+    new BundleAnalyzerPlugin({
+        openAnalyzer: false,
+        generateStatsFile: false,
+    });
+    // );
     if (isDev) {
-        plugins.push(
-            new BundleAnalyzerPlugin({
-                openAnalyzer: false,
-            })
-        );
+        plugins.push(new ReactRefreshWebpackPlugin());
+        // new BundleAnalyzerPlugin({
+        //     openAnalyzer: false,
+        // });
     }
 
     return plugins;

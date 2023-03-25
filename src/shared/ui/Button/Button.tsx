@@ -9,11 +9,13 @@ export type ButtonVariant =
     | "backgroundInverted";
 
 export type ButtonSize =
-    | "size_default"
-    | "size_s"
-    | "size_m"
-    | "size_l"
-    | "size_xl";
+    | "size-padding_default"
+    | "size-padding_4_16"
+    | "size-padding_8_16"
+    | "size-padding_8_24"
+    | "size-padding_12_24"
+    | "size-padding_12_32"
+    | "size-padding_16_32";
 
 export type ButtonRaduis =
     | "radius_none"
@@ -28,13 +30,6 @@ export type ButtonBorder =
     | "border_2px"
     | "border_4px";
 
-//!Подумать как правильнее исполтзовать паддинги
-export type ButtonPadding =
-    | "padding_s"
-    | "padding_m"
-    | "padding_l"
-    | "padding_xl";
-
 export type ButtonFont =
     | "font_s"
     | "font_m"
@@ -46,9 +41,8 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string;
     variant: ButtonVariant;
     radius?: ButtonRaduis;
-    size?: ButtonSize;
     border?: ButtonBorder;
-    padding?: ButtonPadding;
+    size?: ButtonSize;
     fontSize?: ButtonFont;
     disabled?: boolean;
     children: ReactNode;
@@ -61,10 +55,9 @@ export const Button = memo((props: ButtonProps) => {
         children,
         variant,
         radius = "radius_l",
-        size = "size_l",
         border = "border_none",
-        padding = "padding_l",
         fontSize = "font_m",
+        size = "size-padding_4_16",
         disabled,
         ...otherProps
     } = props;
@@ -81,9 +74,8 @@ export const Button = memo((props: ButtonProps) => {
                     className,
                     cls[variant],
                     cls[radius],
-                    cls[size],
                     cls[border],
-                    cls[padding],
+                    cls[size],
                     cls[fontSize],
                 ],
                 mods

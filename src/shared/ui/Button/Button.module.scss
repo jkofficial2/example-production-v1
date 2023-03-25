@@ -2,6 +2,11 @@
     cursor: pointer;
     color: var(--primary-color);
     box-sizing: content-box;
+
+    & * {
+        width: 100%;
+        height: 100%;
+    }
 }
 
 .clear {
@@ -33,53 +38,28 @@
     color: var(--inverted-primary-color);
 }
 
-.size_default {
-    width: 100%;
-    height: 100%;
-}
-
-.size_s {
-    width: var(--font-line-l);
-    height: var(--font-line-s);
-}
-
-.size_m {
-    width: var(--font-line-xl);
-    height: var(--font-line-m);
-}
-
-.size_l {
-    width: var(--font-line-2xl);
-    height: var(--font-line-xl);
-}
-
-.size_xl {
-    width: var(--font-line-2xl);
-    height: var(--font-line-2xl);
-}
-
 .radius_none {
     border-radius: 0;
 }
 
 .radius_s {
-    border-radius: var(--font-line-s);
+    border-radius: var(--indent4);
 }
 
 .radius_m {
-    border-radius: var(--font-line-m);
+    border-radius: var(--indent-8);
 }
 
 .radius_l {
-    border-radius: var(--font-line-l);
+    border-radius: var(--indent12);
 }
 
 .radius_xl {
-    border-radius: var(--font-line-xl);
+    border-radius: var(--indent16);
 }
 
 .radius_2xl {
-    border-radius: var(--font-line-2xl);
+    border-radius: var(--indent24);
 }
 
 .border_none {
@@ -99,39 +79,48 @@
 }
 
 .font_s {
-    font-size: var(--font-s);
+    font: var(--font-s);
 }
 
 .font_m {
-    font-size: var(--font-m);
+    font: var(--font-m);
 }
 
 .font_l {
-    font-size: var(--font-l);
+    font: var(--font-l);
 }
 
 .font_xl {
-    font-size: var(--font-xl);
+    font: var(--font-xl);
 }
 
 .font_2xl {
-    font-size: var(--font-2xl);
+    font: var(--font-2xl);
 }
 
-.padding_s {
-    padding: var(--indent-xs) var(--indent-s);
+.size-padding_default {
+    width: 100%;
+    height: 100%;
 }
 
-.padding_m {
-    padding: var(--indent-s) var(--indent-m);
+.size-padding_4_16 {
+    padding: var(--size-4-16);
 }
 
-.padding_l {
-    padding: var(--indent-m) var(--indent-l);
+.size-padding_8_16 {
+    padding: var(--size-8-16);
 }
 
-.padding_xl {
-    padding: var(--indent-m) var(--indent-xl);
+.size-padding_8_24 {
+    padding: var(--size-8-24);
+}
+
+.size-padding_12_16 {
+    padding: var(--size-12-24);
+}
+
+.size-padding_16_16 {
+    padding: var(--size-16-24);
 }
 
 .disabled {

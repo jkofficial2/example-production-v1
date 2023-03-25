@@ -1,4 +1,6 @@
-export { getUserAuthData } from "./model/getUserAuthData/getUserAuthData";
+export { getUserMounted } from "./model/selectors/getUserMounted/getUserMounted";
+
+export { getUserAuthData } from "./model/selectors/getUserAuthData/getUserAuthData";
 
 export { userReducer, userActions } from "./model/slice/userSlice";
 

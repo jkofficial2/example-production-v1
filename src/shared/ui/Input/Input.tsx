@@ -29,13 +29,13 @@ export const Input = memo((props: InputProps) => {
     const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         onChange?.(e.target.value);
     };
-    
+
     const mods: Mods = {
         [cls.readonly]: readonly,
     };
 
     return (
-        <div className={classNames(cls.InputWrapper, [className])}>
+        <div className={classNames(cls.InputWrapper, [className], mods)}>
             {placeholder && (
                 <div className={cls.placeholder}>{`${placeholder}>`}</div>
             )}
