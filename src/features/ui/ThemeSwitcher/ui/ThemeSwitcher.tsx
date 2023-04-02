@@ -21,13 +21,9 @@ export const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {
             className={classNames(cls.ThemeSwitcher, [className])}
         >
             {theme === "dark" ? (
-                <Icon size="size_xl">
-                    <DarkIcon />
-                </Icon>
+                <Icon Svg={DarkIcon} size="size_xl" />
             ) : (
-                <Icon size="size_xl">
-                    <LightIcon />
-                </Icon>
+                <Icon Svg={LightIcon} size="size_xl" />
             )}
         </Button>
     );

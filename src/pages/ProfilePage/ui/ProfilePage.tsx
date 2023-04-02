@@ -21,10 +21,11 @@ import {
 import { ProfilePageHeader } from "./ProfilePageHeader/ProfilePageHeader";
 import { useTranslation } from "react-i18next";
 import { Text } from "shared/ui/Text/Text";
-import { CurrencyType } from "entities/Currency";
-import { CountryType } from "entities/Country";
+import { CurrencyType } from "shared/ui/Card/Currency";
+import { CountryType } from "shared/ui/Card/Country";
 import { ValidateProfileErrorUnion } from "features/EditableProfileCard/model/types/profile";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect";
+import { useParams } from "react-router-dom";
 
 interface ProfilePageProps {
     className?: string;
@@ -42,6 +43,7 @@ const ProfilePage = memo(({ className }: ProfilePageProps) => {
     const readonly = useSelector(getProfileReadonly);
     const validateErrors = useSelector(getProfileValidateErrors);
     const dispatch = useAppDispatch();
+    const { id } = useParams<{ id: string }>();
 
     const validateErrorTranslates: Record<ValidateProfileErrorUnion, string> = {
         SERVER_ERROR: t("Серверная ошибка при сохранении"),
@@ -52,7 +54,9 @@ const ProfilePage = memo(({ className }: ProfilePageProps) => {
     };
 
     useInitialEffect(() => {
-        dispatch(fetchProfileData());
+        if (id) {
+            dispatch(fetchProfileData(id));
+        }
     });
 
     const onChangeFirstname = useCallback(
@@ -115,7 +119,7 @@ const ProfilePage = memo(({ className }: ProfilePageProps) => {
     );
 
     return (
-        <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+        <DynamicModuleLoader reducers={reducers}>
             <div className={classNames(cls.ProfilePage, [className])}>
                 <ProfilePageHeader />
                 {validateErrors?.length &&

@@ -6,8 +6,8 @@ import { Input } from "shared/ui/Input/Input";
 import { Loader } from "shared/ui/Loader/Loader";
 import { Profile } from "features/EditableProfileCard";
 import { Avatar } from "shared/ui/Avatar/Avatar";
-import { CurrencyType, CurrencySelect } from "entities/Currency";
-import { CountryType, CountrySelect } from "entities/Country";
+import { CurrencyType, CurrencySelect } from "shared/ui/Card/Currency";
+import { CountryType, CountrySelect } from "shared/ui/Card/Country";
 
 interface ProfileCardProps {
     className?: string;

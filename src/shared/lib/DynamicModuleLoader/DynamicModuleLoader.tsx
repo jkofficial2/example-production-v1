@@ -1,4 +1,4 @@
-import {  ReactNode, useEffect } from "react";
+import { ReactNode, useEffect } from "react";
 import { useStore } from "react-redux";
 import {
     ReduxStoreWithManager,
@@ -18,15 +18,19 @@ interface DynamicModuleLoaderProps {
 }
 
 export const DynamicModuleLoader = (props: DynamicModuleLoaderProps) => {
-    const { children, reducers, removeAfterUnmount } = props;
+    const { children, reducers, removeAfterUnmount = true } = props;
 
     const store = useStore() as ReduxStoreWithManager;
     const dispatch = useAppDispatch();
-
     useEffect(() => {
+        const mountedReducers = store.reducerManager.getReducerMap();
         Object.entries(reducers).forEach(([name, reducer]) => {
-            store.reducerManager.add(name as StateSchemaKey, reducer);
-            dispatch({ type: `@INIT ${name} reducer` });
+            const mounted = mountedReducers[name as StateSchemaKey];
+            // Добавляем новый редюсер только если его нет
+            if (!mounted) {
+                store.reducerManager.add(name as StateSchemaKey, reducer);
+                dispatch({ type: `@INIT ${name} reducer` });
+            }
         });
 
         return () => {

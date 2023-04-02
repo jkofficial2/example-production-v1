@@ -1,6 +1,6 @@
 import { Mods, classNames } from "shared/lib/ClassNames/ClassNames";
 import cls from "./Icon.module.scss";
-import { ReactNode, memo } from "react";
+import { FunctionComponent, SVGAttributes, memo } from "react";
 
 interface IconProps {
     className?: string;
@@ -16,18 +16,11 @@ interface IconProps {
         | "size_2xl";
 
     alt?: string;
-    children?: ReactNode;
+    Svg: FunctionComponent<SVGAttributes<SVGAElement>>;
 }
 
 export const Icon = memo((props: IconProps) => {
-    const {
-        src,
-        size = "size_m",
-        className,
-        alt,
-        children,
-        ...otherProps
-    } = props;
+    const { src, size = "size_m", className, alt, Svg, ...otherProps } = props;
 
     const mods: Mods = {};
 
@@ -36,8 +29,11 @@ export const Icon = memo((props: IconProps) => {
             className={classNames(cls.Icon, [className, cls[size]], mods)}
             {...otherProps}
         >
-            {typeof src === "string" ? <img src={src} alt={alt} /> : null}
-            {children}
+            {typeof src === "string" ? (
+                <img src={src} alt={alt} />
+            ) : (
+                <Svg className={classNames(cls.Svg, [className])} />
+            )}
         </i>
     );
 });

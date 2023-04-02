@@ -3,7 +3,7 @@ import { getProfileForm } from "./getProfileForm";
 import { Profile } from "../../types/profile";
 
 describe("getProfileForm.test", () => {
-    test("should return error", () => {
+    test("should return data", () => {
         const data: Profile = {
             username: "admin",
             age: 22,
