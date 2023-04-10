@@ -14,7 +14,7 @@ export const ArticleTextBlockComponent = (
     const { className, block } = props;
 
     return (
-        <div className={classNames(cls.ArticleTextBlockComponent, [className])}>
+        <article className={classNames(cls.ArticleTextBlockComponent, [className])}>
             {block.title && <Text title={block.title} className={cls.title} />}
             {block.paragraphs.map((paragraph) => (
                 <Text
@@ -23,6 +23,6 @@ export const ArticleTextBlockComponent = (
                     className={cls.paragraph}
                 />
             ))}
-        </div>
+        </article>
     );
 };

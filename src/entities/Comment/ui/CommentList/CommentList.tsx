@@ -4,7 +4,7 @@ import { Text } from "shared/ui/Text/Text";
 import { useTranslation } from "react-i18next";
 import cls from "./CommentList.module.scss";
 import { CommentCard } from "../CommentCard/CommentCard";
-import { Comment } from "../../model/types/comment";
+import { Comment } from "../../model/types/CommentsSchema";
 
 interface CommentListProps {
     className?: string;
@@ -16,6 +16,17 @@ export const CommentList = memo((props: CommentListProps) => {
     const { className, isLoading, comments } = props;
     const { t } = useTranslation();
 
+    if (isLoading) {
+        return (
+            <div className={classNames(cls.CommentList, [className])}>
+                <CommentCard isLoading />
+                <CommentCard isLoading />
+                <CommentCard isLoading />
+            </div>
+        );
+    }
+    console.log(comments);
+    
     return (
         <div className={classNames(cls.CommentList, [className])}>
             {comments?.length ? (

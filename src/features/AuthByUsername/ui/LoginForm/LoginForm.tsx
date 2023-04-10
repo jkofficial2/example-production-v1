@@ -56,13 +56,13 @@ const LoginForm = ({ className, onSucces }: LoginFormProps) => {
     }, [dispatch, onSucces, password, username]);
 
     return (
-        <DynamicModuleLoader removeAfterUnmount reducers={initialReducers}>
+        <DynamicModuleLoader reducers={initialReducers}>
             <div className={classNames(cls.LoginForm, [className])}>
                 <Text title={t("Форма авторизации")} />
                 {error && (
                     <Text
                         text={t("Вы ввели неверный логин или пароль")}
-                        theme="error"
+                        variant="error"
                     />
                 )}
                 <Input

@@ -6,7 +6,8 @@ export type ButtonVariant =
     | "clear"
     | "outline"
     | "background"
-    | "backgroundInverted";
+    | "backgroundInverted"
+    | "backgroundTextBlack";
 
 export type ButtonSize =
     | "size-padding_default"
@@ -49,7 +50,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     disbled?: boolean;
 }
 
-export const Button = memo((props: ButtonProps) => {
+export const Button = (props: ButtonProps) => {
     const {
         className,
         children,
@@ -86,4 +87,4 @@ export const Button = memo((props: ButtonProps) => {
             {children}
         </button>
     );
-});
+};

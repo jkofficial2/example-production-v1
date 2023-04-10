@@ -20,10 +20,10 @@ export default function App() {
         <div className={classNames("app", [theme], {})}>
             <Suspense fallback="">
                 <Navbar />
-                <div className="content-page" data-testid="Navbar">
-                    <Sidebar />
+                <main className="content-page">
+                    <Sidebar withSidebar={false} />
                     {mounted && <AppRouter />}
-                </div>
+                </main>
             </Suspense>
         </div>
     );

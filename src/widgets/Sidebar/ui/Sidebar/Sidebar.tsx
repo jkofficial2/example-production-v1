@@ -5,9 +5,10 @@ import { memo, useState } from "react";
 
 interface SidebarProps {
     className?: string;
+    withSidebar: PageConfig["withSidebar"];
 }
 
-export const Sidebar = memo(({ className }: SidebarProps) => {
+export const Sidebar = memo(({ className, withSidebar }: SidebarProps) => {
     const [collabsed, setCollabsed] = useState(false);
 
     const onToggle = () => {
@@ -15,19 +16,23 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
     };
 
     return (
-        <div
-            className={classNames(cls.Sidebar, [className], {
-                [cls.collabsed]: collabsed,
-            })}
-            data-testid="sidebar"
-        >
-            <Button
-                data-testid="sidebar-toggle"
-                variant="backgroundInverted"
-                onClick={onToggle}
-            >
-                toggle
-            </Button>
-        </div>
+        <>
+            {withSidebar ? (
+                <aside
+                    className={classNames(cls.Sidebar, [className], {
+                        [cls.collabsed]: collabsed,
+                    })}
+                    data-testid="sidebar"
+                >
+                    <Button
+                        data-testid="sidebar-toggle"
+                        variant="backgroundInverted"
+                        onClick={onToggle}
+                    >
+                        toggle
+                    </Button>
+                </aside>
+            ) : null}
+        </>
     );
 });

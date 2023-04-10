@@ -1,5 +1,6 @@
 import { About } from "pages/AboutPage";
 import { ArticleDetailsPage } from "pages/ArticleDetailsPage";
+import { ArticleEditPage } from "pages/ArticleEditPage";
 import { ArticlesPage } from "pages/ArticlesPage";
 import { Main } from "pages/MainPage";
 import { NotFoundPage } from "pages/NotFoundPage";
@@ -12,7 +13,9 @@ export type AppRoutes =
     | "not_found"
     | "profile"
     | "articles"
-    | "articles_details";
+    | "article_details"
+    | "article_create"
+    | "article_edit";
 
 export type AppRoutesProps = RouteProps & {
     authOnly?: boolean;
@@ -21,9 +24,11 @@ export type AppRoutesProps = RouteProps & {
 export const RoutePath: Record<AppRoutes, string> = {
     main: "/",
     about: "/about",
-    profile: "/profile",
+    profile: "/profile/", //+ :id
     articles: "/articles",
-    articles_details: "/articles/", //+ :id
+    article_details: "/articles/", //+ :id
+    article_create: "/articles/new",
+    article_edit: "/articles/:id/edit",
 
     //last
     not_found: "*",
@@ -39,7 +44,7 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
         element: <About />,
     },
     profile: {
-        path: RoutePath.profile,
+        path: `${RoutePath.profile}:id`,
         element: <ProfilePage />,
         authOnly: true,
     },
@@ -48,9 +53,19 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
         element: <ArticlesPage />,
         authOnly: true,
     },
-    articles_details: {
-        path: RoutePath.articles_details + ":id",
+    article_details: {
+        path: `${RoutePath.article_details}:id`,
         element: <ArticleDetailsPage />,
+        authOnly: true,
+    },
+    article_create: {
+        path: `${RoutePath.article_create}`,
+        element: <ArticleEditPage />,
+        authOnly: true,
+    },
+    article_edit: {
+        path: `${RoutePath.article_edit}`,
+        element: <ArticleEditPage />,
         authOnly: true,
     },
     //last

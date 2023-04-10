@@ -10,6 +10,7 @@ const data: Profile = {
     firstName: "asd",
     city: "asf",
     currency: "USD",
+    id: "1",
 };
 
 describe("updateProfileData.test", () => {
@@ -52,8 +53,6 @@ describe("updateProfileData.test", () => {
         const result = await thunk.callThunk();
 
         expect(result.meta.requestStatus).toBe("rejected");
-        expect(result.payload).toEqual([
-            "INCORRECT_USER_DATA",
-        ]);
+        expect(result.payload).toEqual(["INCORRECT_USER_DATA"]);
     });
 });

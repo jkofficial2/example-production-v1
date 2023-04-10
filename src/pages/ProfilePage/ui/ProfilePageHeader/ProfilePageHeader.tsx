@@ -7,10 +7,12 @@ import { useCallback } from "react";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import cls from "./ProfilePageHeader.module.scss";
 import {
+    getProfileData,
     getProfileReadonly,
     profileActions,
 } from "features/EditableProfileCard";
 import { updateProfileData } from "features/EditableProfileCard/model/services/updateProfileData/updateProfileData";
+import { getUserAuthData } from "entities/User";
 
 interface ProfilePageHeaderProps {
     className?: string;
@@ -23,7 +25,9 @@ export const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
 
     const readonly = useSelector(getProfileReadonly);
     const dispatch = useAppDispatch();
-
+    const authData = useSelector(getUserAuthData);
+    const profileData = useSelector(getProfileData);
+    const canEdit = authData?.id === profileData?.id;
     const onEdit = useCallback(() => {
         dispatch(profileActions.setReadonly(false));
     }, [dispatch]);
@@ -39,31 +43,35 @@ export const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
     return (
         <div className={classNames(cls.ProfilePageHeader, [className])}>
             <Text title={t("Профиль")} />
-            {readonly ? (
-                <Button
-                    className={cls.editBtn}
-                    variant="backgroundInverted"
-                    onClick={onEdit}
-                >
-                    {t("Редактировать")}
-                </Button>
-            ) : (
-                <>
-                    <Button
-                        className={cls.editBtn}
-                        variant="backgroundInverted"
-                        onClick={onCancelEdit}
-                    >
-                        {t("Отменить")}
-                    </Button>
-                    <Button
-                        className={cls.saveBtn}
-                        variant="backgroundInverted"
-                        onClick={onSave}
-                    >
-                        {t("Сохранить")}
-                    </Button>
-                </>
+            {canEdit && (
+                <div className={cls.btnsWrapper}>
+                    {readonly ? (
+                        <Button
+                            className={cls.editBtn}
+                            variant="backgroundInverted"
+                            onClick={onEdit}
+                        >
+                            {t("Редактировать")}
+                        </Button>
+                    ) : (
+                        <>
+                            <Button
+                                className={cls.editBtn}
+                                variant="backgroundInverted"
+                                onClick={onCancelEdit}
+                            >
+                                {t("Отменить")}
+                            </Button>
+                            <Button
+                                className={cls.saveBtn}
+                                variant="backgroundInverted"
+                                onClick={onSave}
+                            >
+                                {t("Сохранить")}
+                            </Button>
+                        </>
+                    )}
+                </div>
             )}
         </div>
     );

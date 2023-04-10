@@ -21,7 +21,7 @@ export const LangSwitcher = memo(({ className }: LangSwitcherProps) => {
             className={classNames(cls.LangSwitcher, [className])}
             onClick={toggle}
         >
-            {i18n.language === "ru" ? t("EN") : t("RU")}
+            <p>{i18n.language === "ru" ? t("EN") : t("RU")}</p>
         </Button>
     );
 });

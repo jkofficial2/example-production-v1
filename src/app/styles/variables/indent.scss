@@ -21,6 +21,9 @@
     --indent16-y: var(--indent16) 0 var(--indent16);
     --indent24-y: var(--indent24) 0 var(--indent24);
     --indent32-y: var(--indent32) 0 var(--indent32);
+    --indent40-y: var(--indent40) 0 var(--indent40);
+    --indent48-y: var(--indent48) 0 var(--indent48);
+    --indent56-y: var(--indent56) 0 var(--indent56);
 
     /* indent top */
 
@@ -30,6 +33,9 @@
     --indent16-t: var(--indent16) 0 0;
     --indent24-t: var(--indent24) 0 0;
     --indent32-t: var(--indent32) 0 0;
+    --indent40-t: var(--indent40) 0 0;
+    --indent48-t: var(--indent48) 0 0;
+    --indent56-t: var(--indent56) 0 0;
 
     /* indent bottom */
 
@@ -39,6 +45,9 @@
     --indent16-b: 0 0 var(--indent16);
     --indent24-b: 0 0 var(--indent24);
     --indent32-b: 0 0 var(--indent32);
+    --indent40-b: 0 0 var(--indent40);
+    --indent48-b: 0 0 var(--indent48);
+    --indent56-b: 0 0 var(--indent56);
 
     /* X-axis */
 
@@ -48,6 +57,9 @@
     --indent16-x: 0 var(--indent16) 0;
     --indent24-x: 0 var(--indent24) 0;
     --indent32-x: 0 var(--indent32) 0;
+    --indent40-x: 0 var(--indent40) 0;
+    --indent48-x: 0 var(--indent48) 0;
+    --indent56-x: 0 var(--indent56) 0;
 
     /* indent left */
 
@@ -57,6 +69,9 @@
     --indent16-l: 0 var(--indent16) 0 0;
     --indent24-l: 0 var(--indent24) 0 0;
     --indent32-l: 0 var(--indent32) 0 0;
+    --indent40-l: 0 var(--indent40) 0 0;
+    --indent48-l: 0 var(--indent48) 0 0;
+    --indent56-l: 0 var(--indent56) 0 0;
 
     /* indent right */
 
@@ -66,6 +81,9 @@
     --indent16-r: 0 0 0 (--indent16);
     --indent24-r: 0 0 0 (--indent24);
     --indent32-r: 0 0 0 (--indent32);
+    --indent40-r: 0 0 0 (--indent40);
+    --indent48-r: 0 0 0 (--indent48);
+    --indent56-r: 0 0 0 (--indent56);
 
     /* indent size for component */
     --size-4-16: var(--indent4) var(--indent16);
@@ -74,4 +92,7 @@
     --size-12-24: var(--indent12) var(--indent24);
     --size-12-32: var(--indent12) var(--indent32);
     --size-16-32: var(--indent16) var(--indent32);
+    --size-16-40: var(--indent16) var(--indent40);
+    --size-24-40: var(--indent24) var(--indent40);
+    --size-24-56: var(--indent24) var(--indent56);
 }

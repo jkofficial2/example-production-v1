@@ -9,6 +9,7 @@ module.exports = {
         "plugin:react/recommended",
         "plugin:@typescript-eslint/recommended",
         "plugin:react-hooks/recommended",
+        "feature-sliced-design",
     ],
     parser: "@typescript-eslint/parser",
     parserOptions: {
@@ -46,6 +47,7 @@ module.exports = {
         "linebreak-style": 0,
         "react-hooks/rules-of-hooks": "error",
         "react-hooks/exhaustive-deps": "error",
+        "feature-sliced-design/path-checker": "warn",
     },
     globals: {
         __IS_DEV__: true,
