@@ -35,7 +35,7 @@ export type ArticleBlock =
     | ArticleTextBlock
     | ArticleWarningBlock;
 
-export type ArticleType = "IT" | "SCIENCE" | "ECONOMICS";
+export type ArticleType = "ALL" | "IT" | "SCIENCE" | "ECONOMICS";
 
 export type ArticleView = "LIST" | "TILE";
 export interface Article {

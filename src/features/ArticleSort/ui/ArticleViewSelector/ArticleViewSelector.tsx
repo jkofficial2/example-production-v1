@@ -5,7 +5,7 @@ import TiledIcon from "shared/assets/icons/tiles-sixteen.svg";
 import { Icon } from "shared/ui/Icon/Icon";
 import { Button } from "shared/ui/Button/Button";
 import cls from "./ArticleViewSelector.module.scss";
-import { ArticleView } from "../../model/types/article";
+import { ArticleView } from "../../../../entities/Article/model/types/article";
 
 interface ArticleViewSelectorProps {
     className?: string;
@@ -45,6 +45,7 @@ export const ArticleViewSelector = memo((props: ArticleViewSelectorProps) => {
                 >
                     <Icon
                         Svg={viewType.icon}
+                        size="size_l"
                         className={classNames("", [], {
                             [cls.notSelected]: viewType.view !== view,
                         })}

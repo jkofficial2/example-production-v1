@@ -13,6 +13,9 @@ import { getNavbarItems } from "../../module/selectors/getNavbarItems";
 import { NavbarItem } from "../NavbarItem/NavbarItem";
 import Logo from "shared/assets/icons/logo2.svg";
 import { Icon } from "shared/ui/Icon/Icon";
+import { RoutePath } from "shared/config/routeConfig/routeConfig";
+import { AppLink } from "shared/ui/AppLink/AppLink";
+import { Text } from "shared/ui/Text/Text";
 interface NavbarProps {
     className?: string;
 }
@@ -50,19 +53,21 @@ export const Navbar = memo(({ className }: NavbarProps) => {
         [navbarItemsList]
     );
     return (
-        <nav
-            data-testid="navbar"
-            className={classNames(cls.Navbar, [className])}
-        >
-            <div className={classNames(cls.links)}>
-                {itemsList}
-                <Icon
-                    Svg={Logo}
-                    size="size_l"
-                    className={classNames(cls.SvgLogo, [className])}
-                />
-            </div>
+        <nav className={classNames(cls.Navbar, [className])}>
+            <div className={classNames(cls.links)}>{itemsList}</div>
             <div className={classNames(cls.navbarRight)}>
+                <Text
+                    className={cls.appName}
+                    variant="secondary"
+                    title={t("IHabr")}
+                />
+                <AppLink
+                    to={RoutePath.article_create}
+                    className={cls.createBtn}
+                    variant="secondary"
+                >
+                    {t("Создать статью")}
+                </AppLink>
                 <ThemeSwitcher />
                 <LangSwitcher />
                 {authData ? (

@@ -5,7 +5,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px;
+    padding: var(--indent24);
+    color: var(--secondary-color);
 }
 
 .links {
@@ -20,6 +21,10 @@
     align-items: center;
 }
 
-.SvgLogo {
-    fill: var(--orange-color);
+.appName {
+    width: var(--sidebar-width);
+    margin-left: var(--indent16);
+    & p {
+        color: var(--inteverted-primary-color);
+    }
 }

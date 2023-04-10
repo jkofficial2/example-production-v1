@@ -1,10 +1,5 @@
 import { FC, lazy } from "react";
 
-const MainAsync = lazy<FC>(
-    () =>
-        new Promise((resolve) => {
-            setTimeout(() => resolve(import("./Main")), 500);
-        })
-);
+const MainAsync = lazy<FC>(() => import("./Main"));
 
 export default MainAsync;

@@ -20,7 +20,7 @@ export const NavbarItem = memo(({ item }: NavbarItemProps) => {
     }
     return (
         <AppLink
-            variant="primary"
+            variant="secondary"
             to={item.path}
             className={classNames(cls.mainLink)}
         >

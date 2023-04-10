@@ -2,8 +2,6 @@ import { userActions } from "entities/User";
 import { loginByUsername } from "features/AuthByUsername/model/services/loginByUsername/loginByUsername";
 import { TestAsyncThunk } from "shared/lib/tests/TestAsyncThunk/TestAsyncThunk";
 
-// jest.mock("axios");
-
 describe("loginByUsername.test", () => {
     test("success login", async () => {
         const userValue = { username: "123", password: "123", id: "1" };

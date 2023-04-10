@@ -1,9 +1,16 @@
 import { BuildOptions } from "./types/config";
 import HtmlWebpackPlugin from "html-webpack-plugin";
-import { DefinePlugin, ProgressPlugin, WebpackPluginInstance } from "webpack";
+import {
+    DefinePlugin,
+    HotModuleReplacementPlugin,
+    ProgressPlugin,
+    WebpackPluginInstance,
+} from "webpack";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
-import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
+// import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
 import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin";
+import CopyPlugin from "copy-webpack-plugin";
+import CompressionPlugin from "compression-webpack-plugin";
 
 export function buildPlugins({
     paths,
@@ -25,18 +32,21 @@ export function buildPlugins({
             __API__: JSON.stringify(apiUrl),
             __PROJECT__: JSON.stringify(project),
         }),
-    ];
-    // plugins.push(
-    new BundleAnalyzerPlugin({
-        openAnalyzer: false,
-        generateStatsFile: false,
-    });
-    // );
-    if (isDev) {
-        plugins.push(new ReactRefreshWebpackPlugin());
+        new CopyPlugin({
+            patterns: [{ from: paths.locales, to: paths.buildLocales }],
+        }),
+        new CompressionPlugin({
+            algorithm: "gzip",
+        }),
         // new BundleAnalyzerPlugin({
         //     openAnalyzer: false,
-        // });
+        //     generateStatsFile: false,
+        // }),
+    ];
+
+    if (isDev) {
+        plugins.push(new ReactRefreshWebpackPlugin());
+        plugins.push(new HotModuleReplacementPlugin());
     }
 
     return plugins;

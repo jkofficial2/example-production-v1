@@ -2,8 +2,8 @@ import { classNames } from "shared/lib/ClassNames/ClassNames";
 import cls from "./ThemeSwitcher.module.scss";
 import { useTheme } from "app/providers/theme";
 import { memo } from "react";
-import LightIcon from "shared/assets/icons/light.svg";
-import DarkIcon from "shared/assets/icons/dark.svg";
+import LightIcon from "shared/assets/icons/sun.svg";
+import DarkIcon from "shared/assets/icons/sleeping.svg";
 import { Button } from "shared/ui/Button/Button";
 import { Icon } from "shared/ui/Icon/Icon";
 //sleeping sun

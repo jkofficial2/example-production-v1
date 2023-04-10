@@ -4,12 +4,12 @@ import { ComponentRender } from "shared/lib/tests/ComponentRender/ComponentRende
 
 describe("Sidebar", () => {
     test("with only first param", () => {
-        ComponentRender(<Sidebar />);
+        ComponentRender(<Sidebar withSidebar={true} />);
         expect(screen.getByTestId("sidebar")).toBeInTheDocument();
     });
 
     test("test toggle", () => {
-        ComponentRender(<Sidebar />);
+        ComponentRender(<Sidebar withSidebar={true} />);
         const toggleBtn = screen.getByTestId("sidebar-toggle");
         expect(screen.getByTestId("sidebar")).toBeInTheDocument();
         fireEvent.click(toggleBtn);

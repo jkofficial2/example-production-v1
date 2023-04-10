@@ -1,3 +1,22 @@
-.Main{
+.Main {
     display: block;
+    height: 100%;
+    width: 100%;
+    padding: var(--indent56-x);
+    margin-top: var(--indent56);
+
+    .warning {
+        border: 2px solid rgb(227, 165, 20);
+        color: rgb(227, 165, 20);
+        padding: var(--size-24-56);
+        width: 600px;
+    }
+    .warningText {
+        color: rgb(227, 165, 20);
+        font: var(--font-l);
+    }
+    a {
+        color: rgb(227, 165, 20);
+        text-decoration: underline;
+    }
 }

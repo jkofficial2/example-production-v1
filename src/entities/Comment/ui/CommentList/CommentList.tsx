@@ -25,6 +25,8 @@ export const CommentList = memo((props: CommentListProps) => {
             </div>
         );
     }
+    console.log(comments);
+    
     return (
         <div className={classNames(cls.CommentList, [className])}>
             {comments?.length ? (

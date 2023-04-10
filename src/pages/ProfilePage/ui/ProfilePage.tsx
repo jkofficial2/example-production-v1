@@ -126,7 +126,7 @@ const ProfilePage = memo(({ className }: ProfilePageProps) => {
                     validateErrors.map((err) => (
                         <Text
                             key={err}
-                            theme="error"
+                            variant="error"
                             text={validateErrorTranslates[err]}
                         />
                     ))}

@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { Api } from "shared/api/api";
+import { $api } from "shared/api/api";
 import {
     CombinedState,
     Reducer,
@@ -24,7 +24,7 @@ export function createReduxStore(
     const reducerManager = createReducerManager(rootReducers);
 
     const extraArg: ThunkExtraArg = {
-        api: Api,
+        api: $api,
     };
 
     const store = configureStore({

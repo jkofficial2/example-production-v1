@@ -2,6 +2,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    & p {
+        text-align: center;
+    }
+
+    & h2 {
+        text-align: center;
+    }
 }
 
 .loaderWrapper {
@@ -88,12 +95,4 @@
     position: relative;
     top: 33%;
     margin: 24px 0 0;
-}
-
-p {
-    text-align: center;
-}
-
-h2 {
-    text-align: center;
 }

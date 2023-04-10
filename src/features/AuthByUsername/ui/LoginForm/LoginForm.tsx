@@ -62,7 +62,7 @@ const LoginForm = ({ className, onSucces }: LoginFormProps) => {
                 {error && (
                     <Text
                         text={t("Вы ввели неверный логин или пароль")}
-                        theme="error"
+                        variant="error"
                     />
                 )}
                 <Input

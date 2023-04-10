@@ -1,10 +1,5 @@
 import { FC, lazy } from "react";
 
-const ArticlesPageAsync = lazy<FC>(
-    () =>
-        new Promise((resolve) => {
-            setTimeout(() => resolve(import("./ArticlesPage")), 500);
-        })
-);
+const ArticlesPageAsync = lazy<FC>(() => import("./ArticlesPage"));
 
 export default ArticlesPageAsync;
