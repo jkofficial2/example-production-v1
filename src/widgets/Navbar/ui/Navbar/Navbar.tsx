@@ -53,7 +53,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
         [navbarItemsList]
     );
     return (
-        <nav className={classNames(cls.Navbar, [className])}>
+        <nav className={classNames(cls.Navbar, [className])} data-testid="navbar">
             <div className={classNames(cls.links)}>{itemsList}</div>
             <div className={classNames(cls.navbarRight)}>
                 <Text
