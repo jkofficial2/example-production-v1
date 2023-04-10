@@ -4,14 +4,12 @@ export interface UseInfiniteScrollOptions {
     callback?: () => void;
     triggerRef: MutableRefObject<HTMLElement>;
     wrapperRef: MutableRefObject<HTMLElement>;
-    isTriggerVisible: boolean | undefined;
 }
 
 export function useInfiniteScroll({
     callback,
     wrapperRef,
     triggerRef,
-    isTriggerVisible,
 }: UseInfiniteScrollOptions) {
     const observer = useRef<IntersectionObserver | null>(null);
 
@@ -41,5 +39,5 @@ export function useInfiniteScroll({
                 observer.current.unobserve(triggerElement);
             }
         };
-    }, [callback, isTriggerVisible, triggerRef, wrapperRef]);
+    }, [callback, triggerRef, wrapperRef]);
 }
