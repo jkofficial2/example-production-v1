@@ -2,7 +2,6 @@ import { BuildOptions } from "./types/config";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 // import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
-import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin";
 import CopyPlugin from "copy-webpack-plugin";
 import CompressionPlugin from "compression-webpack-plugin";
 import webpack from "webpack";
@@ -37,7 +36,6 @@ export function buildPlugins({
     ];
 
     if (isDev) {
-        plugins.push(new ReactRefreshWebpackPlugin());
         plugins.push(new webpack.HotModuleReplacementPlugin());
         new BundleAnalyzerPlugin({ openAnalyzer: true });
     }
