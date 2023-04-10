@@ -6,6 +6,7 @@ import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin";
 import CopyPlugin from "copy-webpack-plugin";
 import CompressionPlugin from "compression-webpack-plugin";
 import webpack from "webpack";
+import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
 
 export function buildPlugins({
     paths,
@@ -33,15 +34,12 @@ export function buildPlugins({
         new CompressionPlugin({
             algorithm: "gzip",
         }),
-        // new BundleAnalyzerPlugin({
-        //     openAnalyzer: false,
-        //     generateStatsFile: false,
-        // }),
     ];
 
     if (isDev) {
         plugins.push(new ReactRefreshWebpackPlugin());
         plugins.push(new webpack.HotModuleReplacementPlugin());
+        new BundleAnalyzerPlugin({ openAnalyzer: true });
     }
 
     return plugins;

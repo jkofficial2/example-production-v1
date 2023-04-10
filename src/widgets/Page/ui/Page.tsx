@@ -42,7 +42,6 @@ export const Page = memo((props: PageProps) => {
         triggerRef,
         wrapperRef,
         callback: onScrollEnd,
-        isTriggerVisible,
     });
 
     useLayoutEffect(() => {
@@ -66,9 +65,9 @@ export const Page = memo((props: PageProps) => {
         >
             <div className={classNames(cls.initedTrigger)}>
                 {children}
-                {onScrollEnd && (
+                {onScrollEnd ? (
                     <div className={cls.trigger} ref={triggerRef} />
-                )}
+                ) : null}
             </div>
         </section>
     );

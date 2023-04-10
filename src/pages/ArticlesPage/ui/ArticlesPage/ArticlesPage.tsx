@@ -40,8 +40,8 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
     const error = useSelector(getArticlesPageError);
     const [searchParams] = useSearchParams();
 
-    const onLoadNextPart = useCallback(async () => {
-        await dispatch(fetchNextArticlesPage());
+    const onLoadNextPart = useCallback(() => {
+        dispatch(fetchNextArticlesPage());
     }, [dispatch]);
 
     useInitialEffect(() => {

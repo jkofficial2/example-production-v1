@@ -6,7 +6,7 @@ import buildResolve from "./buildResolve";
 import buildDevServer from "./buildDevServer";
 import buildOptimization from "./buildOptimization";
 
-export default function buildWebpackConfig(
+export function buildWebpackConfig(
     options: BuildOptions
 ): webpack.Configuration {
     const { paths, mode, isDev } = options;
