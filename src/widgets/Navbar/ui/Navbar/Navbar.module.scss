@@ -7,6 +7,12 @@
     justify-content: space-between;
     padding: var(--indent24);
     color: var(--secondary-color);
+    
+    img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+    }
 }
 
 .links {

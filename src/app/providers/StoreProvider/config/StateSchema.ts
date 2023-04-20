@@ -10,16 +10,18 @@ import { ArticleDetailsSchema } from "entities/Article";
 import { UserSchema } from "entities/User";
 import { LoginSchema } from "features/AuthByUsername";
 import { ProfileSchema } from "features/EditableProfileCard";
-import { AddCommentSchema } from "features/CommentsForm";
 import { ArticlesPageSchema } from "pages/ArticlesPage";
 import { saveScrollSchema } from "widgets/Page";
 import { ArticleDetailsPageSchema } from "pages/ArticleDetailsPage/model/types";
+import { rtkApi } from "shared/api/rtkApi";
+import { AddCommentSchema } from "entities/Comment";
 
 export interface StateSchema {
     user: UserSchema;
     saveScroll: saveScrollSchema;
-
+    
     // Асинхронные редюсеры
+    [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
     loginForm?: LoginSchema;
     profile?: ProfileSchema;
     articleDetails?: ArticleDetailsSchema;

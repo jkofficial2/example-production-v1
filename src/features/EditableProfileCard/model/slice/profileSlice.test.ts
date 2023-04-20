@@ -1,21 +1,17 @@
-import {
-    Profile,
-    ProfileSchema,
-    profileActions,
-    profileReducer,
-} from "features/EditableProfileCard";
+import { Profile } from "entities/Profile";
 import { updateProfileData } from "../services/updateProfileData/updateProfileData";
+import { ProfileSchema } from "../types/editableProfileCardSchema";
+import { profileActions, profileReducer } from "./profileSlice";
 
 const data: Profile = {
     username: "admin",
     age: 22,
     country: "Armenia",
-    lastName: "Pudge",
+    lastName: "pudge",
     firstName: "asd",
     city: "asf",
-    currency: "EUR",
+    currency: "USD",
 };
-
 describe("profileSlice.test", () => {
     test("test set readonly", () => {
         const state: DeepPartial<ProfileSchema> = { readonly: false };

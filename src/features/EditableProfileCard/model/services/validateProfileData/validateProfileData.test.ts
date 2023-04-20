@@ -1,4 +1,4 @@
-import { Profile } from "features/EditableProfileCard";
+import { Profile } from "entities/Profile";
 import { validateProfileData } from "./validateProfileData";
 
 const data: Profile = {

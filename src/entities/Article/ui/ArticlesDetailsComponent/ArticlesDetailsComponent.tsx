@@ -1,17 +1,12 @@
+/* eslint-disable indent */
 import { classNames } from "shared/lib/ClassNames/ClassNames";
 import cls from "./ArticlesDetailsComponent.module.scss";
-import { fetchArticleById } from "entities/Article/model/service/fetchArticleById/fetchArticleById";
-import { useCallback } from "react";
+import { useCallback, useEffect } from "react";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { useSelector } from "react-redux";
-import {
-    getArticleDetailsData,
-    getArticleDetailsError,
-    getArticleDetailsIsLoading,
-} from "entities/Article/model/selectors/articleDetails";
+
 import { Skeleton } from "shared/ui/Skeleton/Skeleton";
 import { Avatar } from "shared/ui/Avatar/Avatar";
-import { ArticleBlock } from "entities/Article/model/types/article";
 import { ArticleCodeBlockComponent } from "../ArticleCodeBlockComponent/ArticleCodeBlockComponent";
 import { ArticleImageBlockComponent } from "../ArticleImageBlockComponent/ArticleImageBlockComponent";
 import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
@@ -22,11 +17,20 @@ import {
     DynamicModuleLoader,
     ReducersList,
 } from "shared/lib/DynamicModuleLoader/DynamicModuleLoader";
-import { articleDetailsReducer } from "entities/Article/model/slice/articleDetailsSlice";
+import {
+    getArticleDetailsIsLoading,
+    getArticleDetailsError,
+    getArticleDetailsData,
+} from "../../model/selectors/articleDetails";
+import { fetchArticleById } from "../../model/service/fetchArticleById/fetchArticleById";
+import { articleDetailsReducer } from "../../model/slice/articleDetailsSlice";
+import { ArticleBlock } from "../../model/types/article";
+import { t } from "i18next";
+import { Page } from "widgets/Page";
 
 interface ArticlesDetailsComponentProps {
     className?: string;
-    id: string;
+    id?: string;
 }
 
 const reducers: ReducersList = {
@@ -44,46 +48,48 @@ export const ArticlesDetailsComponent = (
 
     const renderBlock = useCallback((block: ArticleBlock) => {
         switch (block.type) {
-        case "CODE":
-            return (
-                <ArticleCodeBlockComponent
-                    key={block.id}
-                    block={block}
-                    className={cls.block}
-                />
-            );
-        case "IMAGE":
-            return (
-                <ArticleImageBlockComponent
-                    key={block.id}
-                    block={block}
-                    className={cls.block}
-                />
-            );
-        case "TEXT":
-            return (
-                <ArticleTextBlockComponent
-                    key={block.id}
-                    className={cls.block}
-                    block={block}
-                />
-            );
-        case "WARNING":
-            return (
-                <ArticleWarningBlockComponent
-                    key={block.id}
-                    className={cls.block}
-                    block={block}
-                />
-            );
-        default:
-            return null;
+            case "CODE":
+                return (
+                    <ArticleCodeBlockComponent
+                        key={block.id}
+                        block={block}
+                        className={cls.block}
+                    />
+                );
+            case "IMAGE":
+                return (
+                    <ArticleImageBlockComponent
+                        key={block.id}
+                        block={block}
+                        className={cls.block}
+                    />
+                );
+            case "TEXT":
+                return (
+                    <ArticleTextBlockComponent
+                        key={block.id}
+                        className={cls.block}
+                        block={block}
+                    />
+                );
+            case "WARNING":
+                return (
+                    <ArticleWarningBlockComponent
+                        key={block.id}
+                        className={cls.block}
+                        block={block}
+                    />
+                );
+            default:
+                return null;
         }
     }, []);
 
-    useInitialEffect(() => {
-        dispatch(fetchArticleById(id));
-    });
+    useEffect(() => {
+        if (__PROJECT__ !== "storybook" && id) {
+            dispatch(fetchArticleById(id));
+        }
+    }, [dispatch, id]);
 
     let content;
 

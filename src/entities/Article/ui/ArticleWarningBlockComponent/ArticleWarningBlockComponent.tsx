@@ -1,7 +1,7 @@
 import { classNames } from "shared/lib/ClassNames/ClassNames";
 import cls from "./ArticleWarningBlockComponent.module.scss";
 import { Text } from "shared/ui/Text/Text";
-import { ArticleWarningBlock } from "entities/Article/model/types/article";
+import { ArticleWarningBlock } from "../../model/types/article";
 
 interface ArticleWarningBlockComponentProps {
     className?: string;
@@ -20,9 +20,9 @@ export const ArticleWarningBlockComponent = (
             ])}
         >
             {block.title && <Text title={block.title} className={cls.title} />}
-            {block.paragraphs.map((paragraph) => (
+            {block.paragraphs.map((paragraph, index) => (
                 <Text
-                    key={paragraph}
+                    key={paragraph + index}
                     text={paragraph}
                     className={cls.paragraph}
                 />

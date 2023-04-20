@@ -16,7 +16,7 @@ interface IconProps {
         | "size_2xl";
 
     alt?: string;
-    Svg: FunctionComponent<SVGAttributes<SVGAElement>>;
+    Svg?: FunctionComponent<SVGAttributes<SVGAElement>>;
 }
 
 export const Icon = memo((props: IconProps) => {
@@ -32,7 +32,7 @@ export const Icon = memo((props: IconProps) => {
             {typeof src === "string" ? (
                 <img src={src} alt={alt} />
             ) : (
-                <Svg className={classNames(cls.Svg, [className])} />
+                Svg && <Svg className={classNames(cls.Svg, [className])} />
             )}
         </i>
     );

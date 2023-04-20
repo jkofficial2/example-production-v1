@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import { memo } from "react";
 import { getUserAuthData } from "entities/User";
 import { useSelector } from "react-redux";
-import { NavbarItemsType } from "widgets/Navbar/module/types/navbar";
+import { NavbarItemsType } from "../../module/types/navbar";
 
 interface NavbarItemProps {
     item: NavbarItemsType;

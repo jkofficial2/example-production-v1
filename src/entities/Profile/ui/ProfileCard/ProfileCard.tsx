@@ -4,10 +4,10 @@ import { useTranslation } from "react-i18next";
 import { Text } from "shared/ui/Text/Text";
 import { Input } from "shared/ui/Input/Input";
 import { Loader } from "shared/ui/Loader/Loader";
-import { Profile } from "features/EditableProfileCard";
 import { Avatar } from "shared/ui/Avatar/Avatar";
 import { CurrencyType, CurrencySelect } from "shared/ui/Card/Currency";
 import { CountryType, CountrySelect } from "shared/ui/Card/Country";
+import { Profile } from "../../model/types/profile";
 
 interface ProfileCardProps {
     className?: string;
@@ -86,6 +86,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                     className={cls.input}
                     onChange={onChangeFirstname}
                     readonly={readonly}
+                    data-testid="ProfileCard.firstName"
                 />
                 <Input
                     value={data?.lastName}
@@ -93,6 +94,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                     className={cls.input}
                     onChange={onChangeLastname}
                     readonly={readonly}
+                    data-testid="ProfileCard.lastName"
                 />
                 <Input
                     value={data?.age}

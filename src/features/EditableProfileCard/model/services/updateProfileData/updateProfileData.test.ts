@@ -1,18 +1,16 @@
-import { Profile } from "features/EditableProfileCard";
 import { TestAsyncThunk } from "shared/lib/tests/TestAsyncThunk/TestAsyncThunk";
 import { updateProfileData } from "./updateProfileData";
+import { Profile } from "entities/Profile";
 
 const data: Profile = {
     username: "admin",
     age: 22,
-    country: "Belarus",
+    country: "Armenia",
     lastName: "pudge",
     firstName: "asd",
     city: "asf",
     currency: "USD",
-    id: "1",
 };
-
 describe("updateProfileData.test", () => {
     test("success", async () => {
         const thunk = new TestAsyncThunk(updateProfileData, {
@@ -53,6 +51,8 @@ describe("updateProfileData.test", () => {
         const result = await thunk.callThunk();
 
         expect(result.meta.requestStatus).toBe("rejected");
-        expect(result.payload).toEqual(["INCORRECT_USER_DATA"]);
+        expect(result.payload).toEqual([
+            "INCORRECT_USER_DATA",
+        ]);
     });
 });

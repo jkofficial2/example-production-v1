@@ -1,6 +1,6 @@
 import { Link, LinkProps } from "react-router-dom";
 import { classNames } from "shared/lib/ClassNames/ClassNames";
-import { ReactNode, memo } from "react";
+import { ReactNode } from "react";
 import cls from "./AppLink.module.scss";
 
 export type AppLinkVariant = "primary" | "secondary";
