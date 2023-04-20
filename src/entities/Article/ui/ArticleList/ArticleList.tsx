@@ -1,11 +1,11 @@
 import { classNames } from "shared/lib/ClassNames/ClassNames";
 import { useTranslation } from "react-i18next";
 import { HTMLAttributeAnchorTarget, memo } from "react";
-import { ArticleListItemSkeleton } from "entities/Article/ui/ArticleListItem/ArticleListItemSkeleton";
 import { ArticleListItem } from "../ArticleListItem/ArticleListItem";
 import cls from "./ArticleList.module.scss";
 import { Article, ArticleView } from "../../model/types/article";
 import { Text } from "shared/ui/Text/Text";
+import { ArticleListItemSkeleton } from "../ArticleListItem/ArticleListItemSkeleton";
 
 interface ArticleListProps {
     className?: string;
@@ -21,7 +21,7 @@ const getSkeletons = (view: ArticleView) =>
         .map((item, index) => (
             <ArticleListItemSkeleton
                 className={cls.card}
-                key={index}
+                key={item + index}
                 view={view}
             />
         ));

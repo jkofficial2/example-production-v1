@@ -1,6 +1,6 @@
 import { classNames } from "shared/lib/ClassNames/ClassNames";
 import cls from "./ArticleImageBlockComponent.module.scss";
-import { ArticleImageBlock } from "entities/Article/model/types/article";
+import { ArticleImageBlock } from "../../model/types/article";
 import { Text } from "shared/ui/Text/Text";
 
 interface ArticleImageBlockComponentProps {

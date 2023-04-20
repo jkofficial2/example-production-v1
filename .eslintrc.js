@@ -18,7 +18,7 @@ module.exports = {
         ecmaVersion: "latest",
         sourceType: "module",
     },
-    plugins: ["react", "@typescript-eslint"],
+    plugins: ["react", "@typescript-eslint", "fsd-checker"],
     rules: {
         "react/jsx-indent": [2, 4],
         "react/jsx-indent-props": [2, 4],
@@ -46,6 +46,7 @@ module.exports = {
         "linebreak-style": 0,
         "react-hooks/rules-of-hooks": "error",
         "react-hooks/exhaustive-deps": "error",
+        "fsd-checker/path-checker": "error",
     },
     globals: {
         __IS_DEV__: true,

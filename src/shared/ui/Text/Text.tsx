@@ -4,7 +4,12 @@ import { memo } from "react";
 
 export type TextTheme = "primary" | "error" | "secondary";
 
-type SizeText = "size_14_14" | "size_16_14" | "size_24_16" | "size_32_24" | "size_40_32";
+type SizeText =
+    | "size_14_14"
+    | "size_16_14"
+    | "size_24_16"
+    | "size_32_24"
+    | "size_40_32";
 
 export type TextAlign = "right" | "left" | "center";
 
@@ -15,6 +20,7 @@ interface TextProps {
     variant?: TextTheme;
     size?: SizeText;
     align?: TextAlign;
+    "data-testid"?: string;
 }
 type HeaderTagType = "h1" | "h2" | "h3" | "p";
 
@@ -34,6 +40,7 @@ export const Text = memo((props: TextProps) => {
         variant = "primary",
         size = "size_16_14",
         align = "left",
+        "data-testid": dataTestId = "Text",
     } = props;
 
     const HeaderTag = mapSizeToHeaderTag[size];
@@ -46,8 +53,19 @@ export const Text = memo((props: TextProps) => {
 
     return (
         <div className={classNames(cls.Text, [className], mods)}>
-            {title && <HeaderTag className={cls.title}>{title}</HeaderTag>}
-            {text && <p className={cls.text}>{text}</p>}
+            {title && (
+                <HeaderTag
+                    className={cls.title}
+                    data-testid={`${dataTestId}.Header`}
+                >
+                    {title}
+                </HeaderTag>
+            )}
+            {text && (
+                <p className={cls.text} data-testid={`${dataTestId}.Paragraph`}>
+                    {text}
+                </p>
+            )}
         </div>
     );
 });

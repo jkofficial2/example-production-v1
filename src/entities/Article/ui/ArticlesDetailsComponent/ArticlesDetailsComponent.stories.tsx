@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 
-import { Article } from "entities/Article";
+import { Article } from "../../";
 import { ArticlesDetailsComponent } from "./ArticlesDetailsComponent";
 import { StoreDecorator } from "shared/config/storybook/decorators/StoreDecorator";
 

@@ -9,7 +9,9 @@ import { Reducer } from "@reduxjs/toolkit";
 import { useAppDispatch } from "../hooks/useAppDispatch/useAppDispatch";
 
 export type ReducersList = {
-    [name in StateSchemaKey]?: Reducer<NonNullable<StateSchema[name]>>;
+    [name in StateSchemaKey]?:
+        | Reducer<NonNullable<StateSchema[name]>>
+        | Reducer;
 };
 
 interface DynamicModuleLoaderProps {

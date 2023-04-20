@@ -16,7 +16,6 @@ import { useThrottle } from "shared/lib/hooks/useThrottle/useThrottle";
 import { getSaveScrollByPath } from "../model/selectors/saveScroll";
 import { UIEventScroll } from "../model/types/saveScrollSchema";
 import { saveScrollActions } from "../model/slices/saveScrollSlice";
-import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect";
 
 interface PageProps {
     className?: string;
@@ -42,12 +41,12 @@ export const Page = memo((props: PageProps) => {
         triggerRef,
         wrapperRef,
         callback: onScrollEnd,
+        trigger: isTriggerVisible,
     });
 
     useLayoutEffect(() => {
         wrapperRef.current.scrollTop = scrollPosition;
     });
-
     const onScroll = useThrottle((e: UIEventScroll<HTMLDivElement>) => {
         dispatch(
             saveScrollActions.setScrollPosition({

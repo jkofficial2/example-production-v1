@@ -1,17 +1,17 @@
 import { StateSchema } from "app/providers/StoreProvider";
 import { getProfileForm } from "./getProfileForm";
-import { Profile } from "../../types/profile";
+import { Profile } from "entities/Profile";
 
 describe("getProfileForm.test", () => {
-    test("should return data", () => {
+    test("should return error", () => {
         const data: Profile = {
             username: "admin",
             age: 22,
-            country: "Russia",
+            country: "Armenia",
             lastName: "pudge",
             firstName: "asd",
             city: "asf",
-            currency: "RUB",
+            currency: "USD",
         };
         const state: DeepPartial<StateSchema> = {
             profile: {

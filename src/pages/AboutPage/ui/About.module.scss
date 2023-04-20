@@ -9,6 +9,7 @@
     .aprilText {
         margin-bottom: var(--indent24);
     }
+
     .februaryText,
     .marchText,
     .aprilText {
@@ -20,16 +21,20 @@
     .aprilCode {
         flex-grow: 1;
     }
+
     .marchText {
         font: var(--font-l);
         color: var(--primary-color);
+
         & a {
             color: var(--primary-color);
         }
     }
+
     .marchCode {
         flex-grow: 1;
     }
+
     .aprilText {
         // flex-basis: 50%;
     }

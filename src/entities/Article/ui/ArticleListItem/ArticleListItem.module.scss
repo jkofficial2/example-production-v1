@@ -1,3 +1,10 @@
+.ArticleListItem {
+    a:visited > * {
+        color: #c58af9;
+        background-color: gray;
+    }
+}
+
 .LIST {
     .views {
         margin-left: auto;

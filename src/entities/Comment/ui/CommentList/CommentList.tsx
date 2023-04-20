@@ -4,11 +4,11 @@ import { Text } from "shared/ui/Text/Text";
 import { useTranslation } from "react-i18next";
 import cls from "./CommentList.module.scss";
 import { CommentCard } from "../CommentCard/CommentCard";
-import { Comment } from "../../model/types/CommentsSchema";
+import { CommentProps } from "../../model/types/CommentsSchema";
 
 interface CommentListProps {
     className?: string;
-    comments?: Comment[];
+    comments?: CommentProps[];
     isLoading?: boolean;
 }
 
@@ -25,8 +25,7 @@ export const CommentList = memo((props: CommentListProps) => {
             </div>
         );
     }
-    console.log(comments);
-    
+
     return (
         <div className={classNames(cls.CommentList, [className])}>
             {comments?.length ? (

@@ -1,15 +1,15 @@
-import { Profile } from "features/EditableProfileCard";
 import { TestAsyncThunk } from "shared/lib/tests/TestAsyncThunk/TestAsyncThunk";
+
 import { fetchProfileData } from "./fetchProfileData";
 
-const data: Profile = {
+const data = {
     username: "admin",
-    age: 27,
-    country: "Armenia",
-    lastName: "pudge",
-    firstName: "asd",
+    age: 22,
+    country: "",
+    lastname: "pudge",
+    first: "asd",
     city: "asf",
-    currency: "EUR",
+    currency: "",
 };
 
 describe("fetchProfileData.test", () => {

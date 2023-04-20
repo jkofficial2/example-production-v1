@@ -4,13 +4,13 @@ import { Avatar } from "shared/ui/Avatar/Avatar";
 import { Text } from "shared/ui/Text/Text";
 import { Skeleton } from "shared/ui/Skeleton/Skeleton";
 import cls from "./CommentCard.module.scss";
-import { Comment } from "../../model/types/CommentsSchema";
+import { CommentProps } from "../../model/types/CommentsSchema";
 import { AppLink } from "shared/ui/AppLink/AppLink";
 import { RoutePath } from "shared/config/routeConfig/routeConfig";
 
 interface CommentCardProps {
     className?: string;
-    comment?: Comment;
+    comment?: CommentProps;
     isLoading?: boolean;
 }
 

@@ -35,6 +35,6 @@ type TupleToObject<T> = {
 };
 
 declare interface PageConfig {
-	withFooter?: boolean
-	withSidebar?: boolean
+    withFooter?: boolean;
+    withSidebar?: boolean;
 }
