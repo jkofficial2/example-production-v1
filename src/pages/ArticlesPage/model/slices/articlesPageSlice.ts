@@ -7,6 +7,7 @@ import { StateSchema } from "app/providers/StoreProvider";
 import { Article, ArticleView } from "entities/Article";
 import { ArticlesPageSchema } from "../../";
 import {
+    ARTICLES_SELECTED_LOCALSTORAGE_KEY,
     ARTICLES_VIEW_LOCALSTORAGE_KEY,
 } from "shared/const/localstorage";
 import { fetchArticlesList } from "../../model/services/fetchArticlesList/fetchArticlesList";
@@ -38,6 +39,7 @@ const articlesPageSlice = createSlice({
         search: "",
         order: "asc",
         type: "ALL",
+        selected: "",
     }),
     reducers: {
         setView: (state, action: PayloadAction<ArticleView>) => {
@@ -66,9 +68,24 @@ const articlesPageSlice = createSlice({
             const view = localStorage.getItem(
                 ARTICLES_VIEW_LOCALSTORAGE_KEY
             ) as ArticleView;
+            const select = localStorage.getItem(
+                ARTICLES_SELECTED_LOCALSTORAGE_KEY
+            ) as string;
             state.view = view;
             state.limit = view === "LIST" ? 4 : 9;
             state._inited = true;
+            if (select) {
+                state.selected = JSON.parse(select);
+            }
+        },
+        setSelected: (state, action: PayloadAction<{ selectId: string }>) => {
+            state.selected = action.payload.selectId;
+            console.log(action.payload.selectId);
+
+            localStorage.setItem(
+                ARTICLES_SELECTED_LOCALSTORAGE_KEY,
+                JSON.stringify(action.payload.selectId)
+            );
         },
     },
     extraReducers: (builder) => {

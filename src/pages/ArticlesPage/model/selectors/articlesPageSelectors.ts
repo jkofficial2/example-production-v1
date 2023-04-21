@@ -22,3 +22,5 @@ export const getArticlesPageSearch = (state: StateSchema) =>
     state.articlesPage?.search ?? "";
 export const getArticlesPageType = (state: StateSchema) =>
     state.articlesPage?.type ?? "ALL";
+export const getArticlesPageSelected = (state: StateSchema) =>
+    state.articlesPage?.selected ?? "";
