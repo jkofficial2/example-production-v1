@@ -1,5 +1,5 @@
 import { classNames } from "shared/lib/ClassNames/ClassNames";
-import { useTranslation } from "react-i18next";
+
 import { memo, useCallback } from "react";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { useSelector } from "react-redux";
@@ -34,7 +34,6 @@ const reducers: ReducersList = {
 
 export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
     const { className, id } = props;
-    const { t } = useTranslation("profile");
 
     const dispatch = useAppDispatch();
     const formData = useSelector(getProfileForm);
@@ -44,11 +43,11 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
     const validateErrors = useSelector(getProfileValidateErrors);
 
     const validateErrorTranslates: OptionalRecord<ValidateProfileErrorUnion, string> = {
-        SERVER_ERROR: t("Серверная ошибка при сохранении"),
-        INCORRECT_COUNTRY: t("Некорректный регион"),
-        NO_DATA: t("Данные не указаны"),
-        INCORRECT_USER_DATA: t("Имя и фамилия обязательны"),
-        INCORRECT_AGE: t("Некорректный возраст"),
+        SERVER_ERROR: ("Серверная ошибка при сохранении"),
+        INCORRECT_COUNTRY: ("Некорректный регион"),
+        NO_DATA: ("Данные не указаны"),
+        INCORRECT_USER_DATA: ("Имя и фамилия обязательны"),
+        INCORRECT_AGE: ("Некорректный возраст"),
     };
 
     useInitialEffect(() => {

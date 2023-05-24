@@ -1,5 +1,5 @@
 import { classNames } from "shared/lib/ClassNames/ClassNames";
-import { useTranslation } from "react-i18next";
+
 import { memo, useCallback } from "react";
 import { Input } from "shared/ui/Input/Input";
 import { Button } from "shared/ui/Button/Button";
@@ -32,7 +32,6 @@ const reducers: ReducersList = {
 
 const AddComment = memo((props: AddCommentProps) => {
     const { className, onSendComment } = props;
-    const { t } = useTranslation();
     const comment = useSelector(getAddCommentText);
     const error = useSelector(getAddCommentError);
     const dispatch = useAppDispatch();
@@ -50,16 +49,16 @@ const AddComment = memo((props: AddCommentProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount={true}>
-            <Text className={cls.commentTitle} title={t("Комментарии")} />
+            <Text className={cls.commentTitle} title={"Комментарии"} />
             <div className={classNames(cls.AddComment, [className])}>
                 <Input
                     className={cls.input}
-                    placeholder={t("Введите текст комментария")}
+                    placeholder={"Введите текст комментария"}
                     value={comment || ""}
                     onChange={onCommentTextChange}
                 />
                 <Button variant="backgroundInverted" onClick={onSendHandler}>
-                    {t("Отправить")}
+                    Отправить
                 </Button>
             </div>
         </DynamicModuleLoader>

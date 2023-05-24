@@ -1,6 +1,5 @@
 import { classNames } from "shared/lib/ClassNames/ClassNames";
 import cls from "./Navbar.module.scss";
-import { LangSwitcher } from "entities/LangSwitcher/LangSwitcher";
 import { ThemeSwitcher } from "entities/ThemeSwitcher";
 import {
     Suspense,
@@ -11,7 +10,6 @@ import {
     useState,
 } from "react";
 import { Button } from "shared/ui/Button/Button";
-import { useTranslation } from "react-i18next";
 import { LoginModal } from "features/AuthByUsername";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import {
@@ -32,7 +30,6 @@ interface NavbarProps {
 }
 
 export const Navbar = memo(({ className }: NavbarProps) => {
-    const { t } = useTranslation();
     const [isAuthModal, setIsAuthModal] = useState(false);
     const [isCloseMenu, setisCloseMenu] = useState(false);
     const authData = useSelector(getUserAuthData);
@@ -84,14 +81,14 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     //                 <Text
     //                     className={cls.appName}
     //                     variant="secondary"
-    //                     title={t("IHabr")}
+    //                     title={("IHabr")}
     //                 />
     //                 <AppLink
     //                     to={RoutePath.article_create}
     //                     className={cls.createBtn}
     //                     variant="secondary"
     //                 >
-    //                     {t("Создать статью")}
+    //                     {("Создать статью")}
     //                 </AppLink>
     //                 <ThemeSwitcher />
     //                 <LangSwitcher />
@@ -105,17 +102,17 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     //                             ...(isAdminPanelAvailable
     //                                 ? [
     //                                     {
-    //                                         content: t("Админка"),
+    //                                         content: ("Админка"),
     //                                         href: RoutePath.admin_panel,
     //                                     },
     //                                 ]
     //                                 : []),
     //                             {
-    //                                 content: t("Профиль"),
+    //                                 content: ("Профиль"),
     //                                 href: RoutePath.profile + authData.id,
     //                             },
     //                             {
-    //                                 content: t("Выйти"),
+    //                                 content: ("Выйти"),
     //                                 onClick: onLogout,
     //                             },
     //                         ]}
@@ -133,7 +130,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     //                         className={cls.links}
     //                         onClick={onShowModal}
     //                     >
-    //                         {t("Войти")}
+    //                         {("Войти")}
     //                     </Button>
     //                 )}
     //             </div>
@@ -148,7 +145,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
             <header className={classNames(cls.Navbar, [className])}>
                 <Text
                     className={cls.appName}
-                    title={t("IHabr")}
+                    title={"IHabr"}
                     variant="secondary"
                 />
                 {/* <AppLink
@@ -156,7 +153,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                     variant="secondary"
                     className={cls.createBtn}
                 >
-                    {t("Создать статью")}
+                    {("Создать статью")}
                 </AppLink> */}
                 <HStack gap="16" className={cls.actions}>
                     <NotificationButton />
@@ -173,7 +170,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                 className={cls.links}
                 onClick={onShowModal}
             >
-                {t("Войти")}
+                {"Войти"}
             </Button>
             {isAuthModal && (
                 <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />

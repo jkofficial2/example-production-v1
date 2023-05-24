@@ -6,13 +6,10 @@ import {
     Reducer,
 } from "@reduxjs/toolkit";
 import { AxiosInstance } from "axios";
-import { ArticleDetailsSchema } from "entities/Article";
 import { UserSchema } from "entities/User";
 import { LoginSchema } from "features/AuthByUsername";
 import { ProfileSchema } from "features/EditableProfileCard";
-import { ArticlesPageSchema } from "pages/ArticlesPage";
 import { saveScrollSchema } from "widgets/Page";
-import { ArticleDetailsPageSchema } from "pages/ArticleDetailsPage/model/types";
 import { rtkApi } from "shared/api/rtkApi";
 import { AddCommentSchema } from "entities/Comment";
 
@@ -24,10 +21,7 @@ export interface StateSchema {
     [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
     loginForm?: LoginSchema;
     profile?: ProfileSchema;
-    articleDetails?: ArticleDetailsSchema;
     addComment?: AddCommentSchema;
-    articlesPage?: ArticlesPageSchema;
-    articleDetailsPage?: ArticleDetailsPageSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;

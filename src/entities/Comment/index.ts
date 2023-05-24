@@ -4,5 +4,4 @@ export type {
     CommentProps,
     AddCommentSchema,
 } from "./model/types/CommentsSchema";
-export { CommentsReducer } from "./model/slice/CommentsSlice/CommentsSlice";
 export { AddCommentAsync as AddComment } from "./ui/AddComment/AddComment.async";

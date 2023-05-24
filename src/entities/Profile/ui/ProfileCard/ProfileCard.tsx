@@ -1,6 +1,6 @@
 import { Mods, classNames } from "shared/lib/ClassNames/ClassNames";
 import cls from "./ProfileCard.module.scss";
-import { useTranslation } from "react-i18next";
+
 import { Text } from "shared/ui/Text/Text";
 import { Input } from "shared/ui/Input/Input";
 import { Loader } from "shared/ui/Loader/Loader";
@@ -41,7 +41,6 @@ export const ProfileCard = (props: ProfileCardProps) => {
         onChangeCountry,
         onChangeCurrency,
     } = props;
-    const { t } = useTranslation("profile");
 
     if (isLoading) {
         return (
@@ -62,8 +61,8 @@ export const ProfileCard = (props: ProfileCardProps) => {
             >
                 <Text
                     variant="error"
-                    title={t("Произошла ошибка при загрузке профиля")}
-                    text={t("Пропробуйте обновить страницу")}
+                    title={"Произошла ошибка при загрузке профиля"}
+                    text={"Пропробуйте обновить страницу"}
                 />
             </div>
         );
@@ -82,7 +81,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                 )}
                 <Input
                     value={data?.firstName}
-                    placeholder={t("Ваше имя")}
+                    placeholder={"Ваше имя"}
                     className={cls.input}
                     onChange={onChangeFirstname}
                     readonly={readonly}
@@ -90,7 +89,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                 />
                 <Input
                     value={data?.lastName}
-                    placeholder={t("Ваша фамилия")}
+                    placeholder={"Ваша фамилия"}
                     className={cls.input}
                     onChange={onChangeLastname}
                     readonly={readonly}
@@ -98,28 +97,28 @@ export const ProfileCard = (props: ProfileCardProps) => {
                 />
                 <Input
                     value={data?.age}
-                    placeholder={t("Ваш возраст")}
+                    placeholder={"Ваш возраст"}
                     className={cls.input}
                     onChange={onChangeAge}
                     readonly={readonly}
                 />
                 <Input
                     value={data?.city}
-                    placeholder={t("Город")}
+                    placeholder={"Город"}
                     className={cls.input}
                     onChange={onChangeCity}
                     readonly={readonly}
                 />
                 <Input
                     value={data?.username}
-                    placeholder={t("Введите имя пользователя")}
+                    placeholder={"Введите имя пользователя"}
                     className={cls.input}
                     onChange={onChangeUsername}
                     readonly={readonly}
                 />
                 <Input
                     value={data?.avatar}
-                    placeholder={t("Введите ссылку на аватар")}
+                    placeholder={"Введите ссылку на аватар"}
                     className={cls.input}
                     onChange={onChangeAvatar}
                     readonly={readonly}

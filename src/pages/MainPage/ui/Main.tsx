@@ -1,16 +1,13 @@
 import { classNames } from "shared/lib/ClassNames/ClassNames";
-import { useTranslation } from "react-i18next";
+
 import { memo } from "react";
 import cls from "./Main.module.scss";
 import { Text } from "shared/ui/Text/Text";
 import { VStack } from "shared/ui/Stack";
-// import { AppLink } from "shared/ui/AppLink/AppLink";
-// import { RoutePath } from "app/providers/router/routeConfig/routeConfig";
 interface MainProps {
     className?: string;
 }
 const Main = memo(({ className }: MainProps) => {
-    const { t } = useTranslation("main");
 
     return (
         <VStack

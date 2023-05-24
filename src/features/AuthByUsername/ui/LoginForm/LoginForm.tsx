@@ -1,4 +1,4 @@
-import { useTranslation } from "react-i18next";
+
 import { Button } from "shared/ui/Button/Button";
 import { Input } from "shared/ui/Input/Input";
 import cls from "./LoginForm.module.scss";
@@ -24,7 +24,6 @@ export interface LoginFormProps {
 }
 
 const LoginForm = ({ className, onSucces }: LoginFormProps) => {
-    const { t } = useTranslation();
     const dispatch = useAppDispatch();
     const username = useSelector(getLoginUsername);
     const password = useSelector(getLoginPassword);
@@ -58,24 +57,24 @@ const LoginForm = ({ className, onSucces }: LoginFormProps) => {
     return (
         <DynamicModuleLoader reducers={initialReducers}>
             <div className={classNames(cls.LoginForm, [className])}>
-                <Text title={t("Форма авторизации")} />
+                <Text title={("Форма авторизации")} />
                 {error && (
                     <Text
-                        text={t("Вы ввели неверный логин или пароль")}
+                        text={("Вы ввели неверный логин или пароль")}
                         variant="error"
                     />
                 )}
                 <Input
                     type="text"
                     className={cls.input}
-                    placeholder={t("Введите username")}
+                    placeholder={("Введите username")}
                     onChange={onChangeUser}
                     value={username}
                 />
                 <Input
                     type="text"
                     className={cls.input}
-                    placeholder={t("Введите пароль")}
+                    placeholder={("Введите пароль")}
                     onChange={onChangePassword}
                     value={password}
                 />
@@ -85,7 +84,7 @@ const LoginForm = ({ className, onSucces }: LoginFormProps) => {
                     onClick={onLoginClick}
                     disabled={isLoading}
                 >
-                    {t("Войти")}
+                    {("Войти")}
                 </Button>
             </div>
         </DynamicModuleLoader>

@@ -1,2 +1,0 @@
-I will try to make a chronology of a simplified production project. I don’t see the point in doing Git Flow or another methodology, so I’ll upload all the changes to one branch. If there is a good mood, I will do it a couple of times to show that I can do it through rebase i + squash and a regular merge request (pull request).
-The goal is to show the chronology of my solution and the development of the project from a full-fledged production build setup on webpack to architectural solutions (modular, FSD)

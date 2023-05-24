@@ -1,5 +1,5 @@
 import { classNames } from "shared/lib/ClassNames/ClassNames";
-import { useTranslation } from "react-i18next";
+
 import { memo, useCallback } from "react";
 import Select from "../../../../Select/Select";
 import { CurrencyType } from "../../model/types/currency";
@@ -24,8 +24,7 @@ const options: OptionsType[] = [
 
 export const CurrencySelect = memo(
     ({ className, value, onChange, readonly }: CurrencySelectProps) => {
-        const { t } = useTranslation();
-
+    
         const onChangeHandler = useCallback(
             (value: string) => {
                 onChange?.(value as CurrencyType);
@@ -36,7 +35,7 @@ export const CurrencySelect = memo(
         return (
             <Select
                 className={classNames("", [className])}
-                label={t("Укажите валюту")}
+                label={("Укажите валюту")}
                 options={options}
                 value={value}
                 onChange={onChangeHandler}

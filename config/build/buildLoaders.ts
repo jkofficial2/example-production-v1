@@ -7,12 +7,6 @@ export function buildLoaders(options: BuildOptions): RuleSetRule[] {
     const { isDev } = options;
     const cssLoader = buildCssLoader(isDev);
 
-    // const tsLoader = {
-    //     test: /\.tsx?$/,
-    //     use: "ts-loader",
-    //     exclude: /node_modules/,
-    // };
-
     const fileLoader = {
         test: /\.(png|jpe?g|gif|woff2|woff)$/i,
         use: [

@@ -1,4 +1,4 @@
-import { useTranslation } from "react-i18next";
+
 import { memo, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -14,7 +14,6 @@ interface AvatarDropdownProps {
 
 export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
     const { className } = props;
-    const { t } = useTranslation();
     const dispatch = useDispatch();
     const isAdmin = useSelector(isUserAdmin);
     const isManager = useSelector(isUserManager);
@@ -38,17 +37,17 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
                 ...(isAdminPanelAvailable
                     ? [
                         {
-                            content: t("Админка"),
+                            content: ("Админка"),
                             href: getRouteAdmin(),
                         },
                     ]
                     : []),
                 {
-                    content: t("Профиль"),
+                    content: ("Профиль"),
                     href: getRouteProfile(authData.id),
                 },
                 {
-                    content: t("Выйти"),
+                    content: ("Выйти"),
                     onClick: onLogout,
                 },
             ]}

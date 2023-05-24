@@ -9,8 +9,6 @@ export default ({ config }: { config: Configuration }) => {
         html: "",
         entry: "",
         src: path.resolve(__dirname, "..", "..", "src"),
-        buildLocales: "",
-        locales: ""
     };
     if (
         config.module?.rules === undefined ||

@@ -1,5 +1,5 @@
 import { classNames } from "shared/lib/ClassNames/ClassNames";
-import { useTranslation } from "react-i18next";
+
 import { memo, useCallback } from "react";
 import { useSelector } from "react-redux";
 
@@ -21,7 +21,6 @@ export const EditableProfileCardHeader = memo(
     (props: EditableProfileCardHeaderProps) => {
         const { className } = props;
 
-        const { t } = useTranslation("profile");
         const authData = useSelector(getUserAuthData);
         const profileData = useSelector(getProfileData);
         const canEdit = authData?.id === profileData?.id;
@@ -46,7 +45,7 @@ export const EditableProfileCardHeader = memo(
                 justify="between"
                 className={classNames("", [className])}
             >
-                <Text title={t("Профиль")} />
+                <Text title={("Профиль")} />
                 {canEdit && (
                     <div>
                         {readonly ? (
@@ -55,7 +54,7 @@ export const EditableProfileCardHeader = memo(
                                 onClick={onEdit}
                                 data-testid="EditableProfileCardHeader.EditButton"
                             >
-                                {t("Редактировать")}
+                                {("Редактировать")}
                             </Button>
                         ) : (
                             <HStack gap="8">
@@ -64,14 +63,14 @@ export const EditableProfileCardHeader = memo(
                                     onClick={onCancelEdit}
                                     data-testid="EditableProfileCardHeader.CancelButton"
                                 >
-                                    {t("Отменить")}
+                                    {("Отменить")}
                                 </Button>
                                 <Button
                                     variant="backgroundInverted"
                                     onClick={onSave}
                                     data-testid="EditableProfileCardHeader.SaveButton"
                                 >
-                                    {t("Сохранить")}
+                                    {("Сохранить")}
                                 </Button>
                             </HStack>
                         )}
