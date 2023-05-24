@@ -4,8 +4,8 @@ import { memo } from "react";
 import cls from "./Main.module.scss";
 import { Text } from "shared/ui/Text/Text";
 import { VStack } from "shared/ui/Stack";
-import { AppLink } from "shared/ui/AppLink/AppLink";
-import { RoutePath } from "shared/config/routeConfig/routeConfig";
+// import { AppLink } from "shared/ui/AppLink/AppLink";
+// import { RoutePath } from "app/providers/router/routeConfig/routeConfig";
 interface MainProps {
     className?: string;
 }
@@ -29,13 +29,13 @@ const Main = memo(({ className }: MainProps) => {
                     size="size_40_32"
                     className={classNames(cls.warningText, [className])}
                 />
-                <p className={classNames(cls.warningText, [className])}>
+                {/* <p className={classNames(cls.warningText, [className])}>
                     &quot;Проект еще делается поэтому главная страница пустая,
                     чтобы посмотреть, что есть на проекте можете перейти в
                     раздел <AppLink to={RoutePath.articles}> Статьи</AppLink>{" "}
                     или <AppLink to={RoutePath.about}> О сайте</AppLink> или{" "}
                     <AppLink to={RoutePath.profile}> Профиль</AppLink>&quot;
-                </p>
+                </p> */}
             </VStack>
         </VStack>
     );

@@ -1,76 +1,63 @@
 import { About } from "pages/AboutPage";
+import { AdminPanelPage } from "pages/AdminPanelPage";
 import { ArticleDetailsPage } from "pages/ArticleDetailsPage";
 import { ArticleEditPage } from "pages/ArticleEditPage";
 import { ArticlesPage } from "pages/ArticlesPage";
+import { ForbiddenPage } from "pages/ForbiddenPage";
 import { Main } from "pages/MainPage";
 import { NotFoundPage } from "pages/NotFoundPage";
 import { ProfilePage } from "pages/ProfilePage";
-import { RouteProps } from "react-router-dom";
+import { AppRoutes, getRouteMain, getRouteAbout, getRouteProfile, getRouteArticles, getRouteArticleDetails, getRouteArticleCreate, getRouteArticleEdit, getRouteAdmin, getRouteForbidden } from "shared/const/router";
+import { AppRoutesProps } from "shared/types/router";
 
-export type AppRoutes =
-    | "main"
-    | "about"
-    | "not_found"
-    | "profile"
-    | "articles"
-    | "article_details"
-    | "article_create"
-    | "article_edit";
-
-export type AppRoutesProps = RouteProps & {
-    authOnly?: boolean;
-};
-
-export const RoutePath: Record<AppRoutes, string> = {
-    main: "/",
-    about: "/about",
-    profile: "/profile/", //+ :id
-    articles: "/articles",
-    article_details: "/articles/", //+ :id
-    article_create: "/articles/new",
-    article_edit: "/articles/:id/edit",
-
-    //last
-    not_found: "*",
-};
 
 export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     main: {
-        path: RoutePath.main,
+        path: getRouteMain(),
         element: <Main />,
     },
     about: {
-        path: RoutePath.about,
+        path: getRouteAbout(),
         element: <About />,
     },
     profile: {
-        path: `${RoutePath.profile}:id`,
+        path: getRouteProfile(":id"),
         element: <ProfilePage />,
         authOnly: true,
     },
     articles: {
-        path: RoutePath.articles,
+        path: getRouteArticles(),
         element: <ArticlesPage />,
         authOnly: true,
     },
     article_details: {
-        path: `${RoutePath.article_details}:id`,
+        path: getRouteArticleDetails(":id"),
         element: <ArticleDetailsPage />,
         authOnly: true,
     },
     article_create: {
-        path: `${RoutePath.article_create}`,
+        path: getRouteArticleCreate(),
         element: <ArticleEditPage />,
         authOnly: true,
     },
     article_edit: {
-        path: `${RoutePath.article_edit}`,
+        path: getRouteArticleEdit(":id"),
         element: <ArticleEditPage />,
         authOnly: true,
     },
+    admin_panel: {
+        path: getRouteAdmin(),
+        element: <AdminPanelPage />,
+        authOnly: true,
+        roles: ["MANAGER", "ADMIN"],
+    },
+    forbidden: {
+        path: getRouteForbidden(),
+        element: <ForbiddenPage />,
+    },
     //last
     not_found: {
-        path: RoutePath.not_found,
+        path: "*",
         element: <NotFoundPage />,
     },
 };

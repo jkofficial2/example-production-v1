@@ -1,16 +1,21 @@
-import { RoutePath } from "shared/config/routeConfig/routeConfig";
 import { NavbarItemsType } from "../types/navbar";
 import { createSelector } from "@reduxjs/toolkit";
 import { getUserAuthData } from "entities/User";
+import {
+    getRouteAbout,
+    getRouteArticles,
+    getRouteMain,
+    getRouteProfile,
+} from "shared/const/router";
 
 export const getNavbarItems = createSelector(getUserAuthData, (userData) => {
     const navbarItemsList: NavbarItemsType[] = [
         {
-            path: RoutePath.main,
+            path: getRouteMain(),
             text: "Главная",
         },
         {
-            path: RoutePath.about,
+            path: getRouteAbout(),
             text: "О сайте",
         },
     ];
@@ -18,12 +23,12 @@ export const getNavbarItems = createSelector(getUserAuthData, (userData) => {
     if (userData) {
         navbarItemsList.push(
             {
-                path: RoutePath.profile + userData.id,
+                path: getRouteProfile(userData.id),
                 text: "Профиль",
                 authOnly: true,
             },
             {
-                path: RoutePath.articles,
+                path: getRouteArticles(),
                 text: "Статьи",
                 authOnly: true,
             }

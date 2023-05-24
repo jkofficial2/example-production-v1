@@ -1,7 +1,8 @@
+.selected {
+    background-color: gray;
+}
+
 .LIST {
-    .selected {
-        background-color: gray;
-    }
     .views {
         margin-left: auto;
     }
@@ -41,16 +42,12 @@
         overflow-y: hidden;
     }
 }
-.selected {
-    background-color: gray !important;
-}
+
 .TILE {
     width: 230px;
     transition: 0.2s;
     cursor: pointer;
-    .selected {
-        background-color: gray !important;
-    }
+
     .date {
         position: absolute;
         right: 0;

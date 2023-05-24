@@ -2,6 +2,7 @@ import { ComponentMeta, ComponentStory } from "@storybook/react";
 
 import { ArticleList } from "./ArticleList";
 import { Article } from "../../model/types/article";
+import { StoreDecorator } from "shared/config/storybook/decorators/StoreDecorator";
 
 export default {
     title: "entities/Article/ArticleList",
@@ -113,6 +114,7 @@ ListTile.args = {
     isLoading: false,
     view: "TILE",
 };
+ListTile.decorators = [StoreDecorator({})];
 
 export const ListList = Template.bind({});
 ListList.args = {
@@ -123,3 +125,4 @@ ListList.args = {
     isLoading: false,
     view: "LIST",
 };
+ListList.decorators = [StoreDecorator({})];

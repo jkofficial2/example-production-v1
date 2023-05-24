@@ -12,7 +12,6 @@ import { ArticleImageBlockComponent } from "../ArticleImageBlockComponent/Articl
 import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
 import { Text } from "shared/ui/Text/Text";
 import { ArticleWarningBlockComponent } from "../ArticleWarningBlockComponent/ArticleWarningBlockComponent";
-import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect";
 import {
     DynamicModuleLoader,
     ReducersList,
@@ -25,8 +24,6 @@ import {
 import { fetchArticleById } from "../../model/service/fetchArticleById/fetchArticleById";
 import { articleDetailsReducer } from "../../model/slice/articleDetailsSlice";
 import { ArticleBlock } from "../../model/types/article";
-import { t } from "i18next";
-import { Page } from "widgets/Page";
 
 interface ArticlesDetailsComponentProps {
     className?: string;

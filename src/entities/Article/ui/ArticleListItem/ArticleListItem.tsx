@@ -1,12 +1,11 @@
 import { Mods, classNames } from "shared/lib/ClassNames/ClassNames";
 import { useTranslation } from "react-i18next";
-import { HTMLAttributeAnchorTarget, memo, useEffect } from "react";
+import { HTMLAttributeAnchorTarget, memo } from "react";
 import { Text } from "shared/ui/Text/Text";
 import { Icon } from "shared/ui/Icon/Icon";
 import EyeIcon from "shared/assets/icons/eye.svg";
 import { Avatar } from "shared/ui/Avatar/Avatar";
 import { Button } from "shared/ui/Button/Button";
-import { RoutePath } from "shared/config/routeConfig/routeConfig";
 import cls from "./ArticleListItem.module.scss";
 import {
     Article,
@@ -21,6 +20,7 @@ import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { useSelector } from "react-redux";
 import { getArticlesPageSelected } from "pages/ArticlesPage/model/selectors/articlesPageSelectors";
 import { articlesPageActions } from "pages/ArticlesPage/model/slices/articlesPageSlice";
+import { getRouteArticleDetails } from "shared/const/router";
 
 interface ArticleListItemProps {
     className?: string;
@@ -58,7 +58,6 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
             <Icon Svg={EyeIcon} />
         </>
     );
-    console.log(select.includes(article.id), "select.includes(article.id)");
 
     const mods: Mods = {
         [cls.selected]: select.includes(article.id),
@@ -78,7 +77,9 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
             >
                 <Card className={classNames(cls.card, [className], mods)}>
                     <div className={cls.header}>
-                        <Avatar size={60} src={article.user.avatar} />
+                        <AppLink to={article.user.id}>
+                            <Avatar size={60} src={article.user.avatar} />
+                        </AppLink>
                         <Text
                             text={article.user.username}
                             className={cls.username}
@@ -94,7 +95,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                     {types}
                     <AppLink
                         target={target}
-                        to={RoutePath.article_details + article.id}
+                        to={getRouteArticleDetails(article.id)}
                     >
                         <img
                             src={article.img}
@@ -111,7 +112,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                     <div className={cls.footer}>
                         <AppLink
                             target={target}
-                            to={RoutePath.article_details + article.id}
+                            to={getRouteArticleDetails(article.id)}
                         >
                             <Button variant="backgroundTextBlack">
                                 {t("Читать далее...")}
@@ -134,10 +135,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
             id="visited"
             onClick={() => handleClick()}
         >
-            <AppLink
-                target={target}
-                to={RoutePath.article_details + article.id}
-            >
+            <AppLink target={target} to={getRouteArticleDetails(article.id)}>
                 <Card className={classNames(cls.card, [className], mods)}>
                     <div className={cls.imageWrapper}>
                         <img

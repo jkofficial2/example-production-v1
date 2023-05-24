@@ -1,6 +1,7 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 import { ArticleInfiniteList } from "./ArticleInfiniteList";
+import { StoreDecorator } from "shared/config/storybook/decorators/StoreDecorator";
 
 export default {
     title: "pages/ArticlesPage/ArticleInfiniteList",
@@ -16,3 +17,4 @@ const Template: ComponentStory<typeof ArticleInfiniteList> = (args) => (
 
 export const Normal = Template.bind({});
 Normal.args = {};
+Normal.decorators = [StoreDecorator({})];

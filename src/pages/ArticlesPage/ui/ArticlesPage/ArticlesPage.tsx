@@ -20,6 +20,7 @@ import { fetchNextArticlesPage } from "../../model/services/fetchNextArticlesPag
 import { initArticlesPage } from "../../model/services/initArticlesPage/initArticlesPage";
 import { articlesPageReducer } from "../../model/slices/articlesPageSlice";
 import { ArticleInfiniteList } from "../ArticleInfiniteList/ArticleInfiniteList";
+import { Text } from "shared/ui/Text/Text";
 
 interface ArticlesPageProps {
     className?: string;
@@ -42,6 +43,9 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
     useInitialEffect(() => {
         dispatch(initArticlesPage(searchParams));
     });
+    if (error) {
+        return <Text title={error} size="size_24_16" />;
+    }
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
             <Page

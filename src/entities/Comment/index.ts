@@ -1,5 +1,5 @@
 export { CommentList } from "./ui/CommentList/CommentList";
-export {
+export type {
     CommentsSchema,
     CommentProps,
     AddCommentSchema,

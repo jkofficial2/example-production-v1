@@ -80,7 +80,6 @@ const articlesPageSlice = createSlice({
         },
         setSelected: (state, action: PayloadAction<{ selectId: string }>) => {
             state.selected = action.payload.selectId;
-            console.log(action.payload.selectId);
 
             localStorage.setItem(
                 ARTICLES_SELECTED_LOCALSTORAGE_KEY,

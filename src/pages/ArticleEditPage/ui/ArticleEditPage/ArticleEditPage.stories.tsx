@@ -1,6 +1,7 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 import ArticleEditPage from "./ArticleEditPage";
+import { StoreDecorator } from "shared/config/storybook/decorators/StoreDecorator";
 
 export default {
     title: "shared/ArticleEditPage",
@@ -16,3 +17,4 @@ const Template: ComponentStory<typeof ArticleEditPage> = (args) => (
 
 export const Normal = Template.bind({});
 Normal.args = {};
+Normal.decorators = [StoreDecorator({})];

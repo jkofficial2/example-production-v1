@@ -21,7 +21,7 @@ export default function App() {
             <Suspense fallback="">
                 <Navbar />
                 <main className="content-page">
-                    <Sidebar withSidebar={false} />
+                    <Sidebar withSidebar={true} />
                     {mounted && <AppRouter />}
                 </main>
             </Suspense>

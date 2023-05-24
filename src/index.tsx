@@ -8,6 +8,13 @@ import { StoreProvider } from "app/providers/StoreProvider";
 import "app/styles/index.scss";
 
 const root = createRoot(document.getElementById("root") as HTMLElement);
+
+if (!root) {
+    throw new Error(
+        "Контейнер root не найден. НЕ удалось вмонтировать реакт приложение"
+    );
+}
+
 root.render(
     <BrowserRouter>
         <StoreProvider>

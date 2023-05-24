@@ -9,9 +9,7 @@ import { Reducer } from "@reduxjs/toolkit";
 import { useAppDispatch } from "../hooks/useAppDispatch/useAppDispatch";
 
 export type ReducersList = {
-    [name in StateSchemaKey]?:
-        | Reducer<NonNullable<StateSchema[name]>>
-        | Reducer;
+    [name in StateSchemaKey]?: Reducer<NonNullable<StateSchema[name]>>;
 };
 
 interface DynamicModuleLoaderProps {
@@ -25,8 +23,10 @@ export const DynamicModuleLoader = (props: DynamicModuleLoaderProps) => {
 
     const store = useStore() as ReduxStoreWithManager;
     const dispatch = useAppDispatch();
+
     useEffect(() => {
-        const mountedReducers = store.reducerManager.getReducerMap();
+        const mountedReducers = store.reducerManager.getMountedReducers();
+
         Object.entries(reducers).forEach(([name, reducer]) => {
             const mounted = mountedReducers[name as StateSchemaKey];
             // Добавляем новый редюсер только если его нет

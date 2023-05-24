@@ -39,16 +39,14 @@ export const Input = memo((props: InputProps) => {
             {placeholder && (
                 <div className={cls.placeholder}>{`${placeholder}>`}</div>
             )}
-            <div className={cls.caretWrapper}>
-                <input
-                    type={type}
-                    value={value}
-                    onChange={onChangeHandler}
-                    className={cls.input}
-                    readOnly={readonly}
-                    {...otherProps}
-                />
-            </div>
+            <input
+                type={type}
+                value={value}
+                onChange={onChangeHandler}
+                className={cls.input}
+                readOnly={readonly}
+                {...otherProps}
+            />
         </div>
     );
 });
